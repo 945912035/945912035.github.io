@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="灯火">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2021/05/21/cubejs/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="介绍CubeJs是一个用于构建分析web应用程序的开源框架，主要用于构建内部的商业智能工具或将面向客户的分析添加到现有的应用程序当中。Cubejs可分为前端和后端通常，Cube.js的后端作为服务运行，管理与数据库的连接，包括查询队列，缓存，预聚合等。同时为前端应用程序公开一个API，用于构建仪表板和其他分析功能。 简单实现单个数据库的查询 数据库连接方式一：环境变量中配置（.env） 12345">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CubeJs">
+<meta property="og:url" content="http://example.com/2021/05/21/CubeJs/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="介绍CubeJs是一个用于构建分析web应用程序的开源框架，主要用于构建内部的商业智能工具或将面向客户的分析添加到现有的应用程序当中。Cubejs可分为前端和后端通常，Cube.js的后端作为服务运行，管理与数据库的连接，包括查询队列，缓存，预聚合等。同时为前端应用程序公开一个API，用于构建仪表板和其他分析功能。 简单实现单个数据库的查询 数据库连接方式一：环境变量中配置（.env） 12345">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-05-21T06:24:47.000Z">
+<meta property="article:modified_time" content="2023-07-25T13:12:04.810Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="后端">
+<meta name="twitter:card" content="summary">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            CubeJs -
+        
+        灯火的博客
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"灯火的博客","subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/945912035","instagram":null,"zhihu":null,"twitter":null,"email":"xj517356221@163.com"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.2.2","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"About":{"icon":"fa-regular fa-user","submenus":{"Github":"https://github.com/945912035","Blog":"https://blog.juniverse.top"}}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    Global.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    Global.data_config = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="main-content-container">
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                灯火的博客
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/archives"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-archive"></i>
+                                        
+                                        ARCHIVES
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown" 
+                                    href="#" onClick="return false;">
+                                    
+                                        
+                                            <i class="fa-regular fa-user"></i>
+                                        
+                                        ABOUT&nbsp;<i class="fa-solid fa-chevron-down"></i>
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://github.com/945912035">GITHUB
+                                        </a>
+                                        </li>
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://blog.juniverse.top">BLOG
+                                        </a>
+                                        </li>
+                                    
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer">
+        <ul class="drawer-navbar-list">
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/archives"  >
+                             
+                                
+                                    <i class="fa-regular fa-archive"></i>
+                                
+                                ARCHIVES
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="has-dropdown" 
+                        href="#" onClick="return false;">
+                            
+                                
+                                    <i class="fa-regular fa-user"></i>
+                                
+                                ABOUT&nbsp;<i class="fa-solid fa-chevron-down"></i>
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                              
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://github.com/945912035">GITHUB</a>
+                            </li>
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://blog.juniverse.top">BLOG</a>
+                            </li>
+                        
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                
+                  <h1 class="article-title-regular">CubeJs</h1>
+                
+              </div>
+              
+                     
+            
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/lights-logo.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">灯火</span>
+                            
+                                <span class="author-label">Lv2</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2021-05-21 14:24:47</span>
+        <span class="mobile">2021-05-21 14:24:47</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-07-25 21:12:04</span>
+            <span class="mobile">2023-07-25 21:12:04</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%90%8E%E7%AB%AF/">后端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>CubeJs是一个用于构建分析web应用程序的开源框架，主要用于构建内部的商业智能工具或将面向客户的分析添加到现有的应用程序当中。<br>Cubejs可分为前端和后端<br>通常，Cube.js的后端作为服务运行，管理与数据库的连接，包括查询队列，缓存，预聚合等。同时为前端应用程序公开一个API，用于构建仪表板和其他分析功能。</p>
+<h2 id="简单实现"><a href="#简单实现" class="headerlink" title="简单实现"></a>简单实现</h2><p>单个数据库的查询</p>
+<h3 id="数据库连接"><a href="#数据库连接" class="headerlink" title="数据库连接"></a>数据库连接</h3><p>方式一：环境变量中配置（.env）</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CUBEJS_DB_HOST=&lt;YOUR_DB_HOST_HERE&gt;</span><br><span class="line">CUBEJS_DB_NAME=&lt;YOUR_DB_NAME_HERE&gt;</span><br><span class="line">CUBEJS_DB_USER=&lt;YOUR_DB_USER_HERE&gt;</span><br><span class="line">CUBEJS_DB_PASS=&lt;YOUR_DB_PASS_HERE&gt;</span><br><span class="line">CUBEJS_DB_TYPE=postgres</span><br><span class="line">CUBEJS_API_SECRET=secret</span><br></pre></td></tr></table></figure></div>
+<p>方式二：配置文件中配置(cube.js)</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// Cube.js configuration options: https://cube.dev/docs/config</span><br><span class="line">const PostgresDriver = require(&#x27;@cubejs-backend/postgres-driver&#x27;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    // 数据库类型</span><br><span class="line">  dbType: &#x27;postgres&#x27;,</span><br><span class="line">  driverFactory: () =&gt; &#123;</span><br><span class="line">    return new PostgresDriver(&#123;</span><br><span class="line">      database: &#x27;you_database&#x27;,</span><br><span class="line">      host: &#x27;you_host&#x27;,</span><br><span class="line">      user: &#x27;you_user&#x27;,</span><br><span class="line">      password: &#x27;your_password&#x27;,</span><br><span class="line">      port: 5432</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+<p>Cube.js文件优先级别高于.env<br>根据不同数据库所需要的配置项会有所不同，上面展示的是PostgresSQL<br>配置项路径：<a class="link"   target="_blank" rel="noopener" href="https://cube.dev/docs/connecting-to-the-database" >https://cube.dev/docs/connecting-to-the-database <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="后端配置"><a href="#后端配置" class="headerlink" title="后端配置"></a>后端配置</h3><h4 id="编写schema"><a href="#编写schema" class="headerlink" title="编写schema"></a>编写schema</h4><p>表的基本信息、表与表之间的联系</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">cube</span>(<span class="string">`Comment`</span>, &#123;</span><br><span class="line">  <span class="attr">sql</span>: <span class="string">`SELECT * FROM public.&quot;Comment&quot;`</span>,</span><br><span class="line">  <span class="comment">// 与别的表之间的联系</span></span><br><span class="line">  <span class="attr">joins</span>: &#123;</span><br><span class="line">    <span class="comment">// Login: &#123;</span></span><br><span class="line">    <span class="comment">//   relationship: `belongsTo`,</span></span><br><span class="line">    <span class="comment">//   sql: `$&#123;Login&#125;.&quot;userId&quot; = $&#123;Comment&#125;.&quot;userId&quot;`</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 一般为聚合表达式</span></span><br><span class="line">  <span class="attr">measures</span>: &#123;</span><br><span class="line">    <span class="attr">count</span>: &#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="string">`count`</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  <span class="attr">dimensions</span>: &#123;</span><br><span class="line">    <span class="attr">id</span>: &#123;</span><br><span class="line">      <span class="attr">sql</span>: <span class="string">`id`</span>,</span><br><span class="line">      <span class="attr">type</span>: <span class="string">`number`</span>,</span><br><span class="line">      <span class="attr">primaryKey</span>: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">    <span class="attr">content</span>: &#123;</span><br><span class="line">      <span class="attr">sql</span>: <span class="string">`content`</span>,</span><br><span class="line">      <span class="attr">type</span>: <span class="string">`string`</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 所属数据库</span></span><br><span class="line">  <span class="attr">dataSource</span>: <span class="string">`database1`</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>Dimensions（维度）<blockquote>
+<p>维度确定如何对可视化内容数据分组.<br>通常呈现在条形图的 X 轴上或饼图的切片上，例如时间、区域、产品类型等。</p>
+</blockquote>
+</li>
+<li>Measures（度量）<blockquote>
+<p>度量是在可视化中使用的计算，结果为具体的参考数值.<br>通常呈现在条形图的 Y 轴上或表格的列中。<br>度量通过由聚合函数（例如 Sum 或 Max）组成的与一个或多个字段组合的表达式创建，例如蒸发量、降水量、销售额等。</p>
+</blockquote>
+</li>
+<li>joins<blockquote>
+<p>编写表之间的关系（同数据库是用列连接而跨库则是dimension连接）</p>
+</blockquote>
+</li>
+<li>dataSource<blockquote>
+<p>所属的数据库</p>
+</blockquote>
+</li>
+<li>extends<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// extends 可以方便实现cube 的复用，类似继承</span></span><br><span class="line"><span class="title function_">cube</span>(<span class="string">`VipUser`</span>, &#123;</span><br><span class="line">  <span class="attr">extends</span>: <span class="title class_">Login</span>,</span><br><span class="line">  <span class="attr">sql</span>: <span class="string">`select * from <span class="subst">$&#123;Login.sql()&#125;</span> where type = 1`</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h3 id="前端查询"><a href="#前端查询" class="headerlink" title="前端查询"></a>前端查询</h3><p>cubejs中有自己的API模块进行查询，下面这个是 core模块中的load方法。vue，react，ngx也有自己的方法。</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cubejsApi = <span class="title function_">cubejs</span>(</span><br><span class="line">  <span class="comment">// token</span></span><br><span class="line">  <span class="string">&#x27;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjEzMzc5NjcsImV4cCI6MTYyMTQyNDM2N30.JBwrY8vaKPav4RKD5iFiSSNnV1PFpAcbSVO7ME7pP3I&#x27;</span>,</span><br><span class="line">  <span class="comment">// apiUrl</span></span><br><span class="line">  &#123; <span class="attr">apiUrl</span>: <span class="string">&#x27;http://localhost:4000/cubejs-api/v1&#x27;</span> &#125;</span><br><span class="line">);</span><br><span class="line"><span class="keyword">const</span> resultSet = <span class="keyword">await</span> cubejsApi.<span class="title function_">load</span>(&#123;</span><br><span class="line">      <span class="attr">measures</span>: [<span class="string">&#x27;Login.count&#x27;</span>],</span><br><span class="line">      <span class="attr">timeDimensions</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">dimension</span>: <span class="string">&#x27;Login.date&#x27;</span>,</span><br><span class="line">          <span class="comment">// 时间维度</span></span><br><span class="line">          <span class="attr">granularity</span>: <span class="string">&#x27;day&#x27;</span>,</span><br><span class="line">          <span class="comment">// 时间范围</span></span><br><span class="line">          <span class="attr">dateRange</span>: [</span><br><span class="line">            <span class="string">&quot;2021-05-11&quot;</span>,</span><br><span class="line">            <span class="string">&quot;2021-06-15&quot;</span></span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="comment">// 排序</span></span><br><span class="line">      <span class="attr">order</span>: &#123;<span class="comment">// &quot;Login.count&quot;: &#x27;desc&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// 过滤信息</span></span><br><span class="line">      <span class="attr">filters</span>: [</span><br><span class="line">        <span class="comment">// 只需要price &gt; 2 的信息</span></span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">member</span>: <span class="string">&quot;Login.price&quot;</span>,</span><br><span class="line">          <span class="attr">operator</span>: <span class="string">&quot;gt&quot;</span>,</span><br><span class="line">          <span class="attr">values</span>: [</span><br><span class="line">            <span class="string">&quot;2&quot;</span></span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">dimensions</span>: [<span class="string">&#x27;Login.type&#x27;</span>],</span><br><span class="line">      <span class="comment">// 数据数量</span></span><br><span class="line">      <span class="attr">limit</span>: <span class="number">50</span></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></div>
+<p>使用传统的方式也可以进行查询，只不过是将load传入的对象放在了一个固定的query字段里面（get方法的话是将数据放在params内，而post方法则是将数据放在body内。以及别忘记配置token了。）</p>
+<h2 id="复杂实现跨数据库查询"><a href="#复杂实现跨数据库查询" class="headerlink" title="复杂实现跨数据库查询"></a>复杂实现跨数据库查询</h2><p>使用预聚合来进行多个数据库之间的查询。</p>
+<h3 id="多数据库连接配置"><a href="#多数据库连接配置" class="headerlink" title="多数据库连接配置"></a>多数据库连接配置</h3><p>由于多个数据库需要获取schema中dataSource的值，所以只能用数据库连接方式二进行配置<br>数据库一： postgres数据库 database: database1<br>数据库二： postgres数据库 database: database2</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Cube.js configuration options: https://cube.dev/docs/config</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">PostgresDriver</span> = <span class="built_in">require</span>(<span class="string">&#x27;@cubejs-backend/postgres-driver&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> driverInfo =  &#123;</span><br><span class="line">    <span class="attr">database1</span>: &#123;</span><br><span class="line">    <span class="attr">database</span>: <span class="string">&#x27;database1&#x27;</span>,</span><br><span class="line">    <span class="attr">host</span>: <span class="string">&#x27;test.host.com&#x27;</span>,</span><br><span class="line">    <span class="attr">user</span>: <span class="string">&#x27;postgres&#x27;</span>,</span><br><span class="line">    <span class="attr">password</span>: <span class="string">&#x27;1234567&#x27;</span>,</span><br><span class="line">    <span class="attr">port</span>: <span class="number">5432</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">database2</span>: &#123;</span><br><span class="line">    <span class="attr">database</span>: <span class="string">&#x27;database2&#x27;</span>,</span><br><span class="line">    <span class="attr">host</span>: <span class="string">&#x27;test.host.com&#x27;</span>,</span><br><span class="line">    <span class="attr">user</span>: <span class="string">&#x27;postgres&#x27;</span>,</span><br><span class="line">    <span class="attr">password</span>: <span class="string">&#x27;1234567&#x27;</span>,</span><br><span class="line">    <span class="attr">port</span>: <span class="number">5432</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="comment">// 数据库类型</span></span><br><span class="line">  <span class="attr">dbType</span>: <span class="string">&#x27;postgres&#x27;</span>,</span><br><span class="line">  <span class="comment">// driverFactory中第一个参数是schema文件的内容</span></span><br><span class="line">  <span class="attr">driverFactory</span>: <span class="function">(<span class="params">&#123; dataSource &#125; = &#123;&#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 将默认数据库定为 database1</span></span><br><span class="line">    <span class="keyword">const</span> source = dataSource === <span class="string">&#x27;default&#x27;</span> ?  <span class="string">&#x27;database1&#x27;</span> : dataSource</span><br><span class="line">    <span class="keyword">const</span> driver = driverInfo[souce]</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">PostgresDriver</span>(driver);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+<p>不同类型数据库也可以进行连接</p>
+<h3 id="预聚合"><a href="#预聚合" class="headerlink" title="预聚合"></a>预聚合</h3><p>预聚合是由Cube.js构建和刷新的一层聚合数据，它可以显著提高查询性能并提供更高的并发性。<br>使用预聚合查询时，他会物化查询的结果，再以表的形式将这些信息进行持久保存。</p>
+<p>Cube.js能够根据一组定义的预聚合规则分析查询，以便选择用于创建预聚合表的最佳规则。<br>如果Cube.js找到合适的预聚合规则，则数据库查询将成为一个多阶段过程：</p>
+<ol>
+<li>Cube.js检查是否存在预聚合的最新副本。</li>
+<li>Cube.js将针对预聚合的表而不是原始数据执行查询。</li>
+</ol>
+<h3 id="后端配置-1"><a href="#后端配置-1" class="headerlink" title="后端配置"></a>后端配置</h3><p>后端需要配置外部数据库，以及在schema文件内编写预聚合信息<br>外部数据库配置<br>外部数据库 postgresSQL database: database3</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    ....</span><br><span class="line">  <span class="comment">// 预聚合的架构名称 开发环境默认名称dev_pre_aggregations</span></span><br><span class="line">    <span class="comment">// 生产环境则是prod_pre_aggregations</span></span><br><span class="line">  <span class="attr">preAggregationsSchema</span>: <span class="string">`dev_pre_aggregations`</span>,</span><br><span class="line">  <span class="comment">// 外部数据库类型</span></span><br><span class="line">  <span class="attr">externalDbType</span>: <span class="string">&#x27;postgres&#x27;</span>,</span><br><span class="line">  <span class="comment">// 外部数据库信息</span></span><br><span class="line">  <span class="attr">externalDriverFactory</span>: <span class="function">(<span class="params">&#123; dataSource &#125; = &#123;&#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">PostgresDriver</span>(&#123;</span><br><span class="line">      <span class="attr">database</span>: <span class="string">&#x27;database3&#x27;</span>,</span><br><span class="line">      <span class="attr">host</span>: <span class="string">&#x27;test.host.com&#x27;</span>,</span><br><span class="line">      <span class="attr">user</span>: <span class="string">&#x27;postgres&#x27;</span>,</span><br><span class="line">      <span class="attr">password</span>: <span class="string">&#x27;1234567&#x27;</span>,</span><br><span class="line">      <span class="attr">port</span>: <span class="number">5432</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>编写预聚合<br>现在有两张表， database1数据库的Login表 和database2数据库中的users表<br>users表内的token 跟Login内的token进行对应（一对多）<br>我们现在根据users表内的 token 来获取Login所对应列的数量<br>users表</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">cube</span>(<span class="string">`Users`</span>, &#123;</span><br><span class="line">  <span class="attr">sql</span>: <span class="string">`SELECT * FROM public.users`</span>,</span><br><span class="line">    ...</span><br><span class="line">  <span class="attr">preAggregations</span>: &#123;</span><br><span class="line">    <span class="attr">usersRollup</span>: &#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="string">`rollup`</span>,</span><br><span class="line">      <span class="attr">dimensionReferences</span>: [<span class="title class_">Users</span>.<span class="property">token</span>],</span><br><span class="line">      <span class="attr">external</span>: <span class="literal">true</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">dataSource</span>: <span class="string">`database2`</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<p>login表</p>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">cube</span>(<span class="string">`Login`</span>,&#123;</span><br><span class="line">    ...</span><br><span class="line">  <span class="comment">// 与其他表之间的联系</span></span><br><span class="line">  <span class="attr">joins</span>: &#123;    </span><br><span class="line">    <span class="comment">// 同数据库连接 使用列进行连接</span></span><br><span class="line">    <span class="comment">// Comment: &#123;</span></span><br><span class="line">    <span class="comment">//  relationship: `hasMany`,</span></span><br><span class="line">    <span class="comment">//  sql: `$&#123;Login&#125;.&quot;userId&quot; = $&#123;Comment&#125;.&quot;userId&quot;`</span></span><br><span class="line">    <span class="comment">//&#125;,</span></span><br><span class="line">    <span class="comment">// 跨数据库连接 使用dimension进行连接</span></span><br><span class="line">    <span class="title class_">Users</span>: &#123;</span><br><span class="line">      <span class="attr">relationship</span>: <span class="string">`belongsTo`</span>,</span><br><span class="line">      <span class="attr">sql</span>: <span class="string">`<span class="subst">$&#123;CUBE.token&#125;</span> = <span class="subst">$&#123;Users.token&#125;</span>`</span></span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">    <span class="comment">// 预聚合</span></span><br><span class="line">  <span class="attr">preAggregations</span>: &#123;</span><br><span class="line">    <span class="attr">loginRollup</span>: &#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="string">`rollup`</span>,</span><br><span class="line">      <span class="attr">measureReferences</span>: [<span class="title class_">Login</span>.<span class="property">count</span>],</span><br><span class="line">      <span class="attr">dimensionReferences</span>: [<span class="title class_">Login</span>.<span class="property">token</span>],</span><br><span class="line">      <span class="comment">// 时间维度</span></span><br><span class="line">      <span class="comment">// timeDimensionReference: date,</span></span><br><span class="line">      <span class="comment">// 时间维度分类 按天来统计数据</span></span><br><span class="line">      <span class="comment">// granularity: `day`,</span></span><br><span class="line">      <span class="comment">// 分区 partitionGranularity可以是day，week或month。例如，如果将partitionGranularity设置为month，则Cube.js将为rollup每个月生成单独的 表</span></span><br><span class="line">      <span class="comment">// partitionGranularity: `month`,</span></span><br><span class="line">    <span class="comment">// 聚合刷新</span></span><br><span class="line">    <span class="attr">refreshKey</span>: &#123;</span><br><span class="line">    <span class="comment">// 聚合表刷新时间 当距离上一次点击超过这个时间则cubejs 会从源数据库再次构建聚合表</span></span><br><span class="line">    <span class="comment">// BigQuery,Athena,Snowflake,and Presto这些数据库默认刷新时间为2 min 其他则是10秒</span></span><br><span class="line">    <span class="attr">every</span>: <span class="string">&#x27;5 minute&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    <span class="comment">// 是否启用预聚合</span></span><br><span class="line">      <span class="attr">external</span>: <span class="literal">true</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 两个预聚合组合在一起，可以实现跨数据库查询</span></span><br><span class="line">    <span class="attr">joinedWithUsersRollup</span>: &#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="string">`rollupJoin`</span>,</span><br><span class="line">      <span class="attr">measureReferences</span>: [<span class="title class_">Login</span>.<span class="property">count</span>],</span><br><span class="line">      <span class="attr">dimensionReferences</span>: [<span class="title class_">Users</span>.<span class="property">token</span>],</span><br><span class="line">      <span class="attr">rollupReferences</span>: [<span class="title class_">Users</span>.<span class="property">usersRollup</span>, <span class="title class_">Login</span>.<span class="property">loginRollup</span>],</span><br><span class="line">      <span class="attr">external</span>: <span class="literal">true</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">    <span class="attr">dataSource</span>: <span class="string">`database1`</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+<p>前端传参 { measures: [‘Login.count’],dimensions: [‘Users.token’]}</p>
+<h3 id="拓展延伸"><a href="#拓展延伸" class="headerlink" title="拓展延伸"></a>拓展延伸</h3><p>数据过多，导致总刷新时间过长可以使用partitionGranularity 属性来对时间属性来进行预聚合分区，这样可以大大减少汇总刷新时间。在此前提下，还可以使用增量刷新（只固定时间刷新所选的时间分区（过去一周，过去一月..），而其他时间分区数据则不会改变）。</p>
+<p>更多资料可以查看<br>cubejs官网：<a class="link"   target="_blank" rel="noopener" href="https://cube.dev/docs/" >https://cube.dev/docs/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>CubeJs的使用方式与GraphQL有些相似，后端构建表的基本信息，前端根据这些信息来获取所需的数据。不同的是CubeJs可操作多个数据库也可以跨数据库查询，且对于SQL语句查询更加完备。<br>CubeJs虽然具有动态生成Schema与仪表盘的功能，但过于简单，显得有点鸡肋。<br>CubeJs数据获取的底层是SQL语句，没有产生多余的字段，加之预聚合的使用使其查询速度快捷。</p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> CubeJs</li>
+        <li><strong>Author:</strong> 灯火</li>
+        <li><strong>Created at:</strong> 2021-05-21 14:24:47</li>
+        
+            <li>
+                <strong>Updated at:</strong> 2023-07-25 21:12:04
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://blog.juniverse.top/2021/05/21/CubeJs/
+        </li>
+        <li>
+            <strong>License:</strong> This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>.
+        </li>
+    </ul>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E5%90%8E%E7%AB%AF/">#后端</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2021/07/26/md%E6%96%87%E4%BB%B6/node-tool/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">node-tool（window）</span>
+                                    <span class="post-nav-item">Prev posts</span>
+                                </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2021/05/21/md%E6%96%87%E4%BB%B6/CubeJs/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">CubeJs</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+
+            
+                <div class="comment-container">
+                    <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fa-solid fa-comments"></i>&nbsp;Comments
+    </div>
+    
+
+        
+            
+ 
+    <div id="waline"></div>
+    <script type="module"  data-pjax>
+        import { init } from 'https://evan.beee.top/js/waline.mjs';
+
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://example.example.com',
+                lang: 'zh-CN',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+            });
+        }
+
+        if ('true') {
+            const loadWalineTimeout = setTimeout(() => {
+                loadWaline();
+                clearTimeout(loadWalineTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadWaline);
+        }
+        
+    </script>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">CubeJs</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0"><span class="nav-text">简单实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5"><span class="nav-text">数据库连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="nav-text">后端配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E6%9F%A5%E8%AF%A2"><span class="nav-text">前端查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%AE%9E%E7%8E%B0%E8%B7%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2"><span class="nav-text">复杂实现跨数据库查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%85%8D%E7%BD%AE"><span class="nav-text">多数据库连接配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E8%81%9A%E5%90%88"><span class="nav-text">预聚合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E9%85%8D%E7%BD%AE-1"><span class="nav-text">后端配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%93%E5%B1%95%E5%BB%B6%E4%BC%B8"><span class="nav-text">拓展延伸</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol>
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+            
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">灯火</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        VISITOR COUNT&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        TOTAL PAGE VIEWS&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a></span>
+                <br>
+            <span class="theme-version-container">THEME&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.2.2</a>
+        </div>
+        
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+            <script async data-pjax>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/layouts/navbarShrink.js"></script>
+
+<script src="/js/tools/scrollTopBottom.js"></script>
+
+<script src="/js/tools/lightDarkSwitch.js"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/tools/tocToggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/layouts/toc.js"></script>
+
+<script src="/js/plugins/tabs.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax',
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            Global.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            Global.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            Global.refresh();
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>

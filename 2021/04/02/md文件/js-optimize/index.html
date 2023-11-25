@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="灯火">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2021/04/02/md文件/js-optimize/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="获取 Array 最后一条数据1234567const list &#x3D; [1,2,3,4]const item1 &#x3D; list.splice(-1)[0] &#x2F;&#x2F; 4 list &#x3D; [1,2,3]const item2 &#x3D; list.pop() &#x2F;&#x2F; 3 list &#x3D; [1,2]&#x2F;&#x2F; splice、pop方法都会对原有的Array对象进行拆解，若要保持原有Array完整性则可使用以下方法const i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 代码优化技巧">
+<meta property="og:url" content="http://example.com/2021/04/02/md%E6%96%87%E4%BB%B6/js-optimize/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="获取 Array 最后一条数据1234567const list &#x3D; [1,2,3,4]const item1 &#x3D; list.splice(-1)[0] &#x2F;&#x2F; 4 list &#x3D; [1,2,3]const item2 &#x3D; list.pop() &#x2F;&#x2F; 3 list &#x3D; [1,2]&#x2F;&#x2F; splice、pop方法都会对原有的Array对象进行拆解，若要保持原有Array完整性则可使用以下方法const i">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-04-02T02:46:06.000Z">
+<meta property="article:modified_time" content="2023-07-25T13:12:05.996Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            JavaScript 代码优化技巧 -
+        
+        灯火的博客
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"灯火的博客","subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/945912035","instagram":null,"zhihu":null,"twitter":null,"email":"xj517356221@163.com"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.2.2","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"About":{"icon":"fa-regular fa-user","submenus":{"Github":"https://github.com/945912035","Blog":"https://blog.juniverse.top"}}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    Global.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    Global.data_config = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="main-content-container">
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                灯火的博客
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/archives"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-archive"></i>
+                                        
+                                        ARCHIVES
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown" 
+                                    href="#" onClick="return false;">
+                                    
+                                        
+                                            <i class="fa-regular fa-user"></i>
+                                        
+                                        ABOUT&nbsp;<i class="fa-solid fa-chevron-down"></i>
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://github.com/945912035">GITHUB
+                                        </a>
+                                        </li>
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://blog.juniverse.top">BLOG
+                                        </a>
+                                        </li>
+                                    
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer">
+        <ul class="drawer-navbar-list">
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/archives"  >
+                             
+                                
+                                    <i class="fa-regular fa-archive"></i>
+                                
+                                ARCHIVES
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="has-dropdown" 
+                        href="#" onClick="return false;">
+                            
+                                
+                                    <i class="fa-regular fa-user"></i>
+                                
+                                ABOUT&nbsp;<i class="fa-solid fa-chevron-down"></i>
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                              
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://github.com/945912035">GITHUB</a>
+                            </li>
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://blog.juniverse.top">BLOG</a>
+                            </li>
+                        
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                
+                  <h1 class="article-title-regular">JavaScript 代码优化技巧</h1>
+                
+              </div>
+              
+                     
+            
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/lights-logo.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">灯火</span>
+                            
+                                <span class="author-label">Lv2</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2021-04-02 10:46:06</span>
+        <span class="mobile">2021-04-02 10:46:06</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-07-25 21:12:05</span>
+            <span class="mobile">2023-07-25 21:12:05</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h2 id="获取-Array-最后一条数据"><a href="#获取-Array-最后一条数据" class="headerlink" title="获取 Array 最后一条数据"></a>获取 Array 最后一条数据</h2><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> list = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> item1 = list.<span class="title function_">splice</span>(-<span class="number">1</span>)[<span class="number">0</span>] <span class="comment">// 4 list = [1,2,3]</span></span><br><span class="line"><span class="keyword">const</span> item2 = list.<span class="title function_">pop</span>() <span class="comment">// 3 list = [1,2]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// splice、pop方法都会对原有的Array对象进行拆解，若要保持原有Array完整性则可使用以下方法</span></span><br><span class="line"><span class="keyword">const</span> item3 = list.<span class="title function_">slice</span>(-<span class="number">1</span>)[<span class="number">0</span>] <span class="comment">// 2 list = [1,2]</span></span><br></pre></td></tr></table></figure></div>
+<h2 id="获取-Array-中指定的对象"><a href="#获取-Array-中指定的对象" class="headerlink" title="获取 Array 中指定的对象"></a>获取 Array 中指定的对象</h2><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> list = [&#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">&#x27;Tom&#x27;</span>&#125;, &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">&#x27;Jerry&#x27;</span>&#125;]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取id为 2 的对象</span></span><br><span class="line"><span class="keyword">const</span> item = list.<span class="title function_">find</span>(<span class="function"><span class="params">ele</span> =&gt;</span> ele.<span class="property">id</span> === <span class="number">2</span>)[<span class="number">0</span>] <span class="comment">// &#123; id: 2, name: &#x27;Jerry&#x27;&#125;</span></span><br></pre></td></tr></table></figure></div>
+<h2 id="判断对象中是否存在该属性"><a href="#判断对象中是否存在该属性" class="headerlink" title="判断对象中是否存在该属性"></a>判断对象中是否存在该属性</h2><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法一 hasOwnProperty</span></span><br><span class="line"><span class="keyword">const</span> property1 = obj.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;a&#x27;</span>) <span class="comment">// true</span></span><br><span class="line"><span class="keyword">const</span> property2 = obj.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;c&#x27;</span>) <span class="comment">// false</span></span><br><span class="line"><span class="keyword">const</span> property3 = obj.<span class="title function_">hasOwnProperty</span>(<span class="string">&quot;toString&quot;</span>) <span class="comment">// false 这是一个继承属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// hasOwnProperty(&#x27;a&#x27;) 判断自有(非继承)属性中是否有属性&#x27;a&#x27;</span></span><br><span class="line"><span class="comment">// 若原有对象自有属性包含hasOwnProperty，再使用该方法则会报错，且eslint判定该写法为非正规写法</span></span><br><span class="line"><span class="comment">// 避免这种细微的 bug，可以写为</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">hasOwnProperty</span>.<span class="title function_">call</span>(obj, <span class="string">&#x27;a&#x27;</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二 in （判断属性（自有、继承）中是否有属性&#x27;a&#x27;）</span></span><br><span class="line"><span class="string">&#x27;a&#x27;</span> <span class="keyword">in</span> obj            <span class="comment">//true，自有属性存在</span></span><br><span class="line"><span class="string">&#x27;y&#x27;</span> <span class="keyword">in</span> obj         <span class="comment">//false</span></span><br><span class="line"><span class="string">&#x27;toString&#x27;</span> <span class="keyword">in</span> obj     <span class="comment">//true，是一个继承属性</span></span><br></pre></td></tr></table></figure></div>
+<h2 id="元素赋值-解构"><a href="#元素赋值-解构" class="headerlink" title="元素赋值(解构)"></a>元素赋值(解构)</h2><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// const obj = &#123;&#125;</span></span><br><span class="line"><span class="comment">// const arr = []</span></span><br><span class="line"><span class="comment">// const str = &#x27;&#x27;</span></span><br><span class="line"><span class="keyword">const</span> [obj, arr, str] = [&#123;&#125;, [], <span class="string">&#x27;&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> data = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>: <span class="number">3</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// const a = data.a</span></span><br><span class="line"><span class="keyword">const</span> &#123; a &#125; = data <span class="comment">// a = 1 </span></span><br></pre></td></tr></table></figure></div>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [valueString, valueNumber, valueObj] = [<span class="string">&#x27;3.14&#x27;</span>, <span class="number">123</span>, &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;]</span><br><span class="line"></span><br><span class="line"><span class="comment">// string 转 number、boolean</span></span><br><span class="line"><span class="keyword">const</span> number = +valueString <span class="comment">// 3.14</span></span><br><span class="line"><span class="keyword">const</span> boolean = !!valueString <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// number 转 string、boolean</span></span><br><span class="line"><span class="keyword">const</span> str2 = valueNumber + <span class="string">&#x27;&#x27;</span> <span class="comment">// &#x27;123&#x27;</span></span><br><span class="line"><span class="keyword">const</span> boolean2 = !!valueNumber <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//object(array) 转 string //于js中array只是特殊一点(key为数字)的object</span></span><br><span class="line"><span class="keyword">const</span> str3 = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(valueObj) <span class="comment">// &#x27;&#123;&#x27;a&#x27;:1&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// string 转 obj(array)</span></span><br><span class="line"><span class="keyword">const</span> obj4 = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(str3) <span class="comment">// &#123; a: 1 &#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h2 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数 ??"></a>聚合函数 ??</h2><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ?? 当前面元素不为 null 或 underfind 时向后执行</span></span><br><span class="line"><span class="keyword">const</span> str =  <span class="title class_">NaN</span> ?? <span class="number">123</span> <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure></div>
+<h2 id="switch-优化"><a href="#switch-优化" class="headerlink" title="switch 优化"></a>switch 优化</h2><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// switch (data) &#123;</span></span><br><span class="line"><span class="comment">//  case 1:</span></span><br><span class="line"><span class="comment">//    test1();</span></span><br><span class="line"><span class="comment">//  break;</span></span><br><span class="line"><span class="comment">//  case 2:</span></span><br><span class="line"><span class="comment">//    test2();</span></span><br><span class="line"><span class="comment">//  break;</span></span><br><span class="line"><span class="comment">//  case 3:</span></span><br><span class="line"><span class="comment">//    test();</span></span><br><span class="line"><span class="comment">//  break;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> data = &#123;</span><br><span class="line">  <span class="number">1</span>: test1,</span><br><span class="line">  <span class="number">2</span>: test2,</span><br><span class="line">  <span class="number">3</span>: test</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data[something] ?? data[something]()</span><br></pre></td></tr></table></figure></div>
+<h2 id="克隆"><a href="#克隆" class="headerlink" title="克隆"></a>克隆</h2><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [arr, obj] = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 浅克隆 数据表层（第一层）克隆</span></span><br><span class="line"><span class="keyword">const</span> cloneArr = arr.<span class="title function_">slice</span>() <span class="comment">// [1, 2, 3]</span></span><br><span class="line"><span class="keyword">const</span> cloneObj = &#123; ...obj &#125; <span class="comment">// &#123; a: 1 &#125;</span></span><br><span class="line"><span class="keyword">const</span> cloneArr = [...arr] <span class="comment">// [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 深克隆 完全是一个新的对象</span></span><br><span class="line"><span class="keyword">const</span> cloneDeep = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj)) <span class="comment">// &#123; a: 1 &#125;</span></span><br></pre></td></tr></table></figure></div>
+<h2 id="按位非运算符（-）"><a href="#按位非运算符（-）" class="headerlink" title="按位非运算符（~）"></a>按位非运算符（~）</h2><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只适用于32位整数</span></span><br><span class="line"><span class="comment">// 按位非运算符（~），反转操作数的位。</span></span><br><span class="line"><span class="comment">// 操作数被转换为32位二进制表示（0和1）。超过32位的数字将丢弃其最高有效位。</span></span><br><span class="line"><span class="comment">// const a = 5 // 5(0000000000000101)</span></span><br><span class="line"><span class="comment">// const b = ~a  // -6(1111111111111010)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 简化indexOf</span></span><br><span class="line"><span class="comment">// if(arr.indexOf(item) &gt; -1) &#123;&#125; // item found</span></span><br><span class="line"><span class="comment">// if(arr.indexOf(item) === -1) &#123;&#125; // item not found</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(~arr.<span class="title function_">indexOf</span>(item)) &#123;&#125; <span class="comment">// item found	  ~arr.indexOf(item) 返回值为0</span></span><br><span class="line"><span class="keyword">if</span>(!~arr.<span class="title function_">indexOf</span>(item)) &#123;&#125; <span class="comment">// item not found	!~arr.indexOf(item) 返回值为true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//如果输入为浮点型数据类型，则值会在执行按位操作前通过截断转换为整型值。借此 我们可以向下取整</span></span><br><span class="line"><span class="keyword">const</span> float = <span class="number">1.3</span></span><br><span class="line"><span class="comment">// Math.floor(float) // 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> int = ~~float <span class="comment">// 1</span></span><br></pre></td></tr></table></figure></div>
+<h2 id="数组中最大和最小的值"><a href="#数组中最大和最小的值" class="headerlink" title="数组中最大和最小的值"></a>数组中最大和最小的值</h2><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(…arr); <span class="comment">// 3</span></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">min</span>(…arr); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure></div>
+
+<p>参考 <a class="link"   target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/jO7hoh1ffESq8jBfuXZ9Vw" >https://mp.weixin.qq.com/s/jO7hoh1ffESq8jBfuXZ9Vw <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> JavaScript 代码优化技巧</li>
+        <li><strong>Author:</strong> 灯火</li>
+        <li><strong>Created at:</strong> 2021-04-02 10:46:06</li>
+        
+            <li>
+                <strong>Updated at:</strong> 2023-07-25 21:12:05
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://blog.juniverse.top/2021/04/02/md文件/js-optimize/
+        </li>
+        <li>
+            <strong>License:</strong> This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>.
+        </li>
+    </ul>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E5%89%8D%E7%AB%AF/">#前端</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2021/04/02/js-optimize/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">JavaScript 代码优化技巧</span>
+                                    <span class="post-nav-item">Prev posts</span>
+                                </span>
+                            </a>
+                        </div>
+                    
+                    
+                </div>
+            
+
+
+            
+                <div class="comment-container">
+                    <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fa-solid fa-comments"></i>&nbsp;Comments
+    </div>
+    
+
+        
+            
+ 
+    <div id="waline"></div>
+    <script type="module"  data-pjax>
+        import { init } from 'https://evan.beee.top/js/waline.mjs';
+
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://example.example.com',
+                lang: 'zh-CN',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+            });
+        }
+
+        if ('true') {
+            const loadWalineTimeout = setTimeout(() => {
+                loadWaline();
+                clearTimeout(loadWalineTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadWaline);
+        }
+        
+    </script>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">JavaScript 代码优化技巧</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-Array-%E6%9C%80%E5%90%8E%E4%B8%80%E6%9D%A1%E6%95%B0%E6%8D%AE"><span class="nav-text">获取 Array 最后一条数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-Array-%E4%B8%AD%E6%8C%87%E5%AE%9A%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="nav-text">获取 Array 中指定的对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E8%AF%A5%E5%B1%9E%E6%80%A7"><span class="nav-text">判断对象中是否存在该属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%83%E7%B4%A0%E8%B5%8B%E5%80%BC-%E8%A7%A3%E6%9E%84"><span class="nav-text">元素赋值(解构)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="nav-text">聚合函数 ??</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch-%E4%BC%98%E5%8C%96"><span class="nav-text">switch 优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%8B%E9%9A%86"><span class="nav-text">克隆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E4%BD%8D%E9%9D%9E%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%88-%EF%BC%89"><span class="nav-text">按位非运算符（~）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9C%80%E5%A4%A7%E5%92%8C%E6%9C%80%E5%B0%8F%E7%9A%84%E5%80%BC"><span class="nav-text">数组中最大和最小的值</span></a></li></ol>
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+            
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">灯火</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        VISITOR COUNT&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        TOTAL PAGE VIEWS&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a></span>
+                <br>
+            <span class="theme-version-container">THEME&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.2.2</a>
+        </div>
+        
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+            <script async data-pjax>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/layouts/navbarShrink.js"></script>
+
+<script src="/js/tools/scrollTopBottom.js"></script>
+
+<script src="/js/tools/lightDarkSwitch.js"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/tools/tocToggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/layouts/toc.js"></script>
+
+<script src="/js/plugins/tabs.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax',
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            Global.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            Global.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            Global.refresh();
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
