@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="人间烟火/张佳伟版">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2024/04/20/2024-4-20/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="可视化组件的设置：在App主界面中 debugPaintSizeEnabled 设置为 true1、实际上整个UI都是各种的组件堆叠而成的一个 Flutter app 本身就是一个 widget，大多数 widgets 都有一个 build() 方法，在 app 的 build() 方法中实例化和返回一个 widget 会让它显示出来。 要点Widgets 是用于构建 UI 的类。Widgets">
+<meta property="og:type" content="article">
+<meta property="og:title" content="可视化组件、常见的Widget">
+<meta property="og:url" content="http://example.com/2024/04/20/2024-4-20/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="可视化组件的设置：在App主界面中 debugPaintSizeEnabled 设置为 true1、实际上整个UI都是各种的组件堆叠而成的一个 Flutter app 本身就是一个 widget，大多数 widgets 都有一个 build() 方法，在 app 的 build() 方法中实例化和返回一个 widget 会让它显示出来。 要点Widgets 是用于构建 UI 的类。Widgets">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-04-20T12:22:16.000Z">
+<meta property="article:modified_time" content="2024-04-21T13:28:36.911Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="flutter">
+<meta property="article:tag" content="组件">
+<meta name="twitter:card" content="summary">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            可视化组件、常见的Widget -
+        
+        人间烟火的日常
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <style> @keyframes rubberBand { 0% { transform: scaleX(1); } 30% {transform: scale3d(1.25,.75,1);} 40% {transform: scale3d(.75,1.25,1);} 50% { transform: scale3d(1.15,.85,1);} 65% {transform: scale3d(.95,1.05,1);} 75% {transform: scale3d(1.05,.95,1);} 100% {transform: scaleX(1);} } .avatar img:hover { animation: rubberBand 1s; }</style>
+                
+    
+    <script id="hexo-configurations">
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"人间烟火的日常","subtitle":{"text":["世间万事,风云变幻,苍黄翻覆。纵使波谲云诡,但制心一处,便无事不办 !","天定胜人,人定兮胜天 !","谁都知道，不意味着谁都敢说 !"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/945912035","instagram":null,"zhihu":null,"twitter":null,"email":"945912035@qq.com"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.2.2","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"About":{"icon":"fa-regular fa-user","submenus":{"Github":"https://github.com/945912035","Blog":"https://945912035.github.io"}}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    Global.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    Global.data_config = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="main-content-container">
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                人间烟火的日常
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/archives"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-archive"></i>
+                                        
+                                        ARCHIVES
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown" 
+                                    href="#" onClick="return false;">
+                                    
+                                        
+                                            <i class="fa-regular fa-user"></i>
+                                        
+                                        ABOUT&nbsp;<i class="fa-solid fa-chevron-down"></i>
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://github.com/945912035">GITHUB
+                                        </a>
+                                        </li>
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://945912035.github.io">BLOG
+                                        </a>
+                                        </li>
+                                    
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer">
+        <ul class="drawer-navbar-list">
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/archives"  >
+                             
+                                
+                                    <i class="fa-regular fa-archive"></i>
+                                
+                                ARCHIVES
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="has-dropdown" 
+                        href="#" onClick="return false;">
+                            
+                                
+                                    <i class="fa-regular fa-user"></i>
+                                
+                                ABOUT&nbsp;<i class="fa-solid fa-chevron-down"></i>
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                              
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://github.com/945912035">GITHUB</a>
+                            </li>
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://945912035.github.io">BLOG</a>
+                            </li>
+                        
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                
+                  <h1 class="article-title-regular">可视化组件、常见的Widget</h1>
+                
+              </div>
+              
+                     
+            
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/lights-logo.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">人间烟火/张佳伟版</span>
+                            
+                                <span class="author-label">Lv1</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-04-20 20:22:16</span>
+        <span class="mobile">2024-04-20 20:22:16</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-04-21 21:28:36</span>
+            <span class="mobile">2024-04-21 21:28:36</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0/">日常学习</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/flutter/">flutter</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E7%BB%84%E4%BB%B6/">组件</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h5 id="可视化组件的设置：在App主界面中-debugPaintSizeEnabled-设置为-true"><a href="#可视化组件的设置：在App主界面中-debugPaintSizeEnabled-设置为-true" class="headerlink" title="可视化组件的设置：在App主界面中 debugPaintSizeEnabled 设置为 true"></a>可视化组件的设置：在App主界面中 debugPaintSizeEnabled 设置为 true</h5><h5 id="1、实际上整个UI都是各种的组件堆叠而成的"><a href="#1、实际上整个UI都是各种的组件堆叠而成的" class="headerlink" title="1、实际上整个UI都是各种的组件堆叠而成的"></a>1、实际上整个UI都是各种的组件堆叠而成的</h5><p>一个 Flutter app 本身就是一个 widget，大多数 widgets 都有一个 build() 方法，在 app 的 build() 方法中实例化和返回一个 widget 会让它显示出来。</p>
+<p>要点<br>Widgets 是用于构建 UI 的类。<br>Widgets 可以用于布局和展示 UI 元素。<br>通过组合简单的 widgets 来构建复杂的 widgets。<br>所有布局 widgets 都具有以下任一项：<br>一个 child    属性，它们只包含一个子项 —— 例如 Center 和 Container<br>一个 children 属性，它们包含多个子项 —— 例如 Row、Column、ListView 和 Stack</p>
+<h5 id="常见的布局组件-Row-和-Column"><a href="#常见的布局组件-Row-和-Column" class="headerlink" title="常见的布局组件 Row 和 Column"></a>常见的布局组件 Row 和 Column</h5><p>Row 和 Column 是水平和垂直布局的基本原始 widgets —— 这些低级 widgets 允许最大程度的自定义。<br>Flutter 还提供专门的、更高级别的 widgets，可能可以直接满足需求。<br>例如:<br>和 Row 相比你可能更喜欢 ListTile，这是一个易于使用的 widget，有属性可以设置头尾图标，最多可以显示 3 行文本；<br>和 Column 相比你也可能更喜欢 ListView，这是一种类似于列的布局，但如果其内容太长导致可用空间不够容纳时会自动滚动。</p>
+<h5 id="当空间容纳不下报错时"><a href="#当空间容纳不下报错时" class="headerlink" title="当空间容纳不下报错时"></a>当空间容纳不下报错时</h5><p>当某个布局太大而超出屏幕时，受影响的边缘会出现黄色和黑色条纹图案<br>通过使用 Expanded widget，可以调整 widgets 的大小以适合行或列。<br>要修复上一个图像行对其渲染框来说太宽的示例，可以用 Expanded widget 把每个图像包起来。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Row(</span><br><span class="line">  crossAxisAlignment: CrossAxisAlignment.center,</span><br><span class="line">  children: [</span><br><span class="line">    Expanded(</span><br><span class="line">      child: Image.asset(&#x27;images/pic1.jpg&#x27;),</span><br><span class="line">    ),</span><br><span class="line">    Expanded(</span><br><span class="line">      child: Image.asset(&#x27;images/pic2.jpg&#x27;),</span><br><span class="line">    ),</span><br><span class="line">    Expanded(</span><br><span class="line">      child: Image.asset(&#x27;images/pic3.jpg&#x27;),</span><br><span class="line">    ),</span><br><span class="line">  ],</span><br><span class="line">);</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="和兄弟项瓜分所占大小"><a href="#和兄弟项瓜分所占大小" class="headerlink" title="和兄弟项瓜分所占大小"></a>和兄弟项瓜分所占大小</h5><p>也许你想要一个 widget 占用的空间是兄弟项的两倍。<br>为了达到这个效果，可以使用 Expanded widget 的 flex 属性，这是一个用来确定 widget 的弹性系数的整数。<br>默认的弹性系数为 1，以下代码将中间图像的弹性系数设置为 2：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Row(</span><br><span class="line">  crossAxisAlignment: CrossAxisAlignment.center,</span><br><span class="line">  children: [</span><br><span class="line">    Expanded(</span><br><span class="line">      child: Image.asset(&#x27;images/pic1.jpg&#x27;),</span><br><span class="line">    ),</span><br><span class="line">    Expanded(</span><br><span class="line">      flex: 2,</span><br><span class="line">      child: Image.asset(&#x27;images/pic2.jpg&#x27;),</span><br><span class="line">    ),</span><br><span class="line">    Expanded(</span><br><span class="line">      child: Image.asset(&#x27;images/pic3.jpg&#x27;),</span><br><span class="line">    ),</span><br><span class="line">  ],</span><br><span class="line">);</span><br></pre></td></tr></table></figure></div>
+<p>默认情况下，行或列沿其主轴会占用尽可能多的空间，但如果要将子项紧密组合在一起，请将其 mainAxisSize 设置为 MainAxisSize.min。<br>这样他们就会挤在一起，如评分中的星星他们之间的距离等情况</p>
+<h5 id="组件间可以互相嵌套，可以说是一大特点吧"><a href="#组件间可以互相嵌套，可以说是一大特点吧" class="headerlink" title="组件间可以互相嵌套，可以说是一大特点吧"></a>组件间可以互相嵌套，可以说是一大特点吧</h5><p>布局框架允许你根据需要在行和列内嵌套行和列。让我们看看以下布局的概述部分的代码：<br>（为了最大限度地减少高度嵌套的布局代码可能导致的视觉混乱，可以在变量和函数中实现 UI 的各个部分）</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">final stars = Row(</span><br><span class="line">  mainAxisSize: MainAxisSize.min,</span><br><span class="line">  children: [</span><br><span class="line">    Icon(Icons.star, color: Colors.green[500]),</span><br><span class="line">    Icon(Icons.star, color: Colors.green[500]),</span><br><span class="line">    Icon(Icons.star, color: Colors.green[500]),</span><br><span class="line">    const Icon(Icons.star, color: Colors.black),</span><br><span class="line">    const Icon(Icons.star, color: Colors.black),</span><br><span class="line">  ],</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">final ratings = Container(</span><br><span class="line">  padding: const EdgeInsets.all(20),</span><br><span class="line">  child: Row(</span><br><span class="line">    mainAxisAlignment: MainAxisAlignment.spaceEvenly,</span><br><span class="line">    children: [</span><br><span class="line">      stars,</span><br><span class="line">      const Text(</span><br><span class="line">        &#x27;170 Reviews&#x27;,</span><br><span class="line">        style: TextStyle(</span><br><span class="line">          color: Colors.black,</span><br><span class="line">          fontWeight: FontWeight.w800,</span><br><span class="line">          fontFamily: &#x27;Roboto&#x27;,</span><br><span class="line">          letterSpacing: 0.5,</span><br><span class="line">          fontSize: 20,</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">    ],</span><br><span class="line">  ),</span><br><span class="line">);</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="一些常见的组件"><a href="#一些常见的组件" class="headerlink" title="一些常见的组件"></a>一些常见的组件</h4><h5 id="标准-widgets"><a href="#标准-widgets" class="headerlink" title="标准 widgets"></a>标准 widgets</h5><p>Container：向 widget 增加 padding、margins、borders、background color 或者其他的“装饰”。</p>
+<p>GridView：将 widget 展示为一个可滚动的网格。</p>
+<p>ListView：将 widget 展示为一个可滚动的列表。</p>
+<p>Stack：将 widget 覆盖在另一个的上面。</p>
+<h5 id="Material-widgets"><a href="#Material-widgets" class="headerlink" title="Material widgets"></a>Material widgets</h5><p>Card：将相关信息整理到一个有圆角和阴影的盒子中。</p>
+<p>ListTile：将最多三行的文本、可选的导语以及后面的图标组织在一行中。</p>
+<h5 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h5><p>许多布局都可以随意的用 Container，它可以将使用了 padding 或者增加了 borders&#x2F;margins 的 widget 分开。你可以通过将整个布局放到一个 Container 中，并且改变它的背景色或者图片，来改变设备的背景。</p>
+<p>增加 padding、margins、borders</p>
+<p>改变背景色或者图片</p>
+<p>只包含一个子 widget，但是这个子 widget 可以是行、列或者是 widget 树的根 widget</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Widget _buildDecoratedImage(int imageIndex) =&gt; Expanded(</span><br><span class="line">      child: Container(</span><br><span class="line">        decoration: BoxDecoration(</span><br><span class="line">          border: Border.all(width: 10, color: Colors.black38),</span><br><span class="line">          borderRadius: const BorderRadius.all(Radius.circular(8)),</span><br><span class="line">        ),</span><br><span class="line">        margin: const EdgeInsets.all(4),</span><br><span class="line">        child: Image.asset(&#x27;images/pic$imageIndex.jpg&#x27;),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Container 还用来为每个图片添加圆角和外边距：</span><br><span class="line">Widget _buildImageRow(int imageIndex) =&gt; Row(</span><br><span class="line">      children: [</span><br><span class="line">        _buildDecoratedImage(imageIndex),</span><br><span class="line">        _buildDecoratedImage(imageIndex + 1),</span><br><span class="line">      ],</span><br><span class="line">    );</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h5><p>可以使用 Stack 在基础 widget（通常是图片）上排列 widget， widget 可以完全或者部分覆盖基础 widget。</p>
+<p>摘要 (Stack)<br>用于覆盖另一个 widget<br>子列表中的第一个 widget 是基础 widget；后面的子项覆盖在基础 widget 的顶部<br>Stack 的内容是无法滚动的<br>你可以剪切掉超出渲染框的子项<br>在 CircleAvatar 的上面使用 Stack 覆盖 Container （在透明的黑色背景上展示它的 Text）。<br>Stack 使用 alignment 属性和 Alignment 让文本偏移。</p>
+<p>代码如下：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Widget _buildStack() &#123;</span><br><span class="line">  return Stack(</span><br><span class="line">    alignment: const Alignment(0.6, 0.6),</span><br><span class="line">    children: [</span><br><span class="line">      const CircleAvatar(</span><br><span class="line">        backgroundImage: AssetImage(&#x27;images/pic.jpg&#x27;),</span><br><span class="line">        radius: 100,</span><br><span class="line">      ),</span><br><span class="line">      Container(</span><br><span class="line">        decoration: const BoxDecoration(</span><br><span class="line">          color: Colors.black45,</span><br><span class="line">        ),</span><br><span class="line">        child: const Text(</span><br><span class="line">          &#x27;Mia B&#x27;,</span><br><span class="line">          style: TextStyle(</span><br><span class="line">            fontSize: 20,</span><br><span class="line">            fontWeight: FontWeight.bold,</span><br><span class="line">            color: Colors.white,</span><br><span class="line">          ),</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">    ],</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>(这里孩子中只有两个，如果要控制多个，可以使用Positioned(child: child)，相对于父系的绝对定位)</p>
+<h5 id="划线分隔线"><a href="#划线分隔线" class="headerlink" title="划线分隔线"></a>划线分隔线</h5><p>Divider(),<br>有线高、粗细、长短、颜色等可供设置</p>
+<h5 id="Card"><a href="#Card" class="headerlink" title="Card"></a>Card</h5><p>Card 的内容无法滚动<br>Material 库 中的 Card 包含相关有价值的信息，几乎可以由任何 widget 组成，但是通常和 ListTile 一起使用。 Card 只有一个子项，这个子项可以是列、行、列表、网格或者其他支持多个子项的 widget。默认情况下，Card 的大小是 0x0 像素。你可以使用 SizedBox 控制 card 的大小。<br>在 Flutter 中，Card 有轻微的圆角和阴影来使它具有 3D 效果。<br>改变 Card 的 elevation 属性可以控制阴影效果。例如，把 elevation 设置为 24，可以从视觉上更多的把 Card 抬离表面，使阴影变得更加分散。</p>
+<h5 id="ListTile"><a href="#ListTile" class="headerlink" title="ListTile"></a>ListTile</h5><p>ListTile 是 Material 库 中专用的行 widget，它可以很轻松的创建一个包含三行文本以及可选的行前和行尾图标的行。 ListTile 在 Card 或者 ListView 中最常用，但是也可以在别处使用。</p>
+<h5 id="LayoutBuildery-与-SingleChildScrollView"><a href="#LayoutBuildery-与-SingleChildScrollView" class="headerlink" title="LayoutBuildery 与 SingleChildScrollView"></a>LayoutBuildery 与 SingleChildScrollView</h5><p>添加带有SingleChildScrollView的LayoutBuilder。<br>在SingleChildScrollView中添加一个ConstrainedBox。<br>创建具有间隔项目的列。</p>
+<p>首先创建一个LayoutBuilder。您需要提供一个具有两个参数的生成器回调函数：<br>LayoutBuilder提供的BuildContext。<br>父窗口小部件的BoxConstraints。<br>在这个配方中，您不会使用BuildContext，但在下一步中需要BoxConstraints。<br>在构建器函数中，返回一个SingleChildScrollView。这个小部件确保子小部件可以滚动，即使父容器太小。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LayoutBuilder(builder: (context, constraints) &#123;</span><br><span class="line">  return SingleChildScrollView(</span><br><span class="line">    child: Placeholder(),</span><br><span class="line">  );</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+
+<p>在此步骤中，添加一个ConstraintdBox作为SingleChildScrollView的子项。<br>ConstraintdBox小部件向其子部件施加额外的约束。<br>通过将minHeight参数设置为LayoutBuilder约束的maxHeight来配置约束。<br>这样可以确保子窗口小部件的最小高度等于LayoutBuilder约束提供的可用空间，即BoxConstraints的最大高度。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">LayoutBuilder(builder: (context, constraints) &#123;</span><br><span class="line">  return SingleChildScrollView(</span><br><span class="line">    child: ConstrainedBox(</span><br><span class="line">      constraints: BoxConstraints(minHeight: constraints.maxHeight),</span><br><span class="line">      child: Placeholder(),</span><br><span class="line">    ),</span><br><span class="line">  );</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+
+<p>最后，添加一个Column作为ConstraintdBox的子级。<br>要均匀地分配项目的空间，请将mainAxisAlignment设置为mainAxisAlignment.spaceBetween。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">LayoutBuilder(builder: (context, constraints) &#123;</span><br><span class="line">  return SingleChildScrollView(</span><br><span class="line">    child: ConstrainedBox(</span><br><span class="line">      constraints: BoxConstraints(minHeight: constraints.maxHeight),</span><br><span class="line">      child: Column(</span><br><span class="line">        mainAxisAlignment: MainAxisAlignment.spaceBetween,</span><br><span class="line">        children: [</span><br><span class="line">          ItemWidget(text: &#x27;Item 1&#x27;),</span><br><span class="line">          ItemWidget(text: &#x27;Item 2&#x27;),</span><br><span class="line">          ItemWidget(text: &#x27;Item 3&#x27;),</span><br><span class="line">        ],</span><br><span class="line">      ),</span><br><span class="line">    ),</span><br><span class="line">  );</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+
+<p>或者，如果您希望一个小部件比其他小部件占用更多空间，您可以使用间隔小部件来调整项目之间的间距，或者使用扩展小部件。<br>为此，您必须使用IntrinsicHeight小部件包装Column，这将迫使Column小部件将自己调整到最小高度，而不是无限扩展。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">LayoutBuilder(builder: (context, constraints) &#123;</span><br><span class="line">  return SingleChildScrollView(</span><br><span class="line">    child: ConstrainedBox(</span><br><span class="line">      constraints: BoxConstraints(minHeight: constraints.maxHeight),</span><br><span class="line">      child: IntrinsicHeight(</span><br><span class="line">        child: Column(</span><br><span class="line">          children: [</span><br><span class="line">            ItemWidget(text: &#x27;Item 1&#x27;),</span><br><span class="line">            Spacer(),</span><br><span class="line">            ItemWidget(text: &#x27;Item 2&#x27;),</span><br><span class="line">            Expanded(</span><br><span class="line">              child: ItemWidget(text: &#x27;Item 3&#x27;),</span><br><span class="line">            ),</span><br><span class="line">          ],</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">    ),</span><br><span class="line">  );</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+
+
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> 可视化组件、常见的Widget</li>
+        <li><strong>Author:</strong> 人间烟火/张佳伟版</li>
+        <li><strong>Created at:</strong> 2024-04-20 20:22:16</li>
+        
+            <li>
+                <strong>Updated at:</strong> 2024-04-21 21:28:36
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://945912035.github.io/2024/04/20/2024-4-20/
+        </li>
+        <li>
+            <strong>License:</strong> This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>.
+        </li>
+    </ul>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/flutter/">#flutter</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E7%BB%84%E4%BB%B6/">#组件</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2024/04/21/2024-4-21/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">List/Grid View</span>
+                                    <span class="post-nav-item">Prev posts</span>
+                                </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2024/04/19/2024-4-19/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">Python翻译</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+
+            
+                <div class="comment-container">
+                    <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fa-solid fa-comments"></i>&nbsp;Comments
+    </div>
+    
+
+        
+            
+ 
+    <div id="waline"></div>
+    <script type="module"  data-pjax>
+        import { init } from 'https://evan.beee.top/js/waline.mjs';
+
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://example.example.com',
+                lang: 'zh-CN',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+            });
+        }
+
+        if ('true') {
+            const loadWalineTimeout = setTimeout(() => {
+                loadWaline();
+                clearTimeout(loadWalineTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadWaline);
+        }
+        
+    </script>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">可视化组件、常见的Widget</div>
+        
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+            
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">人间烟火/张佳伟版</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        VISITOR COUNT&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        TOTAL PAGE VIEWS&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a></span>
+                <br>
+            <span class="theme-version-container">THEME&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.2.2</a>
+        </div>
+        
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+            <script async data-pjax>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/layouts/navbarShrink.js"></script>
+
+<script src="/js/tools/scrollTopBottom.js"></script>
+
+<script src="/js/tools/lightDarkSwitch.js"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/tools/tocToggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/layouts/toc.js"></script>
+
+<script src="/js/plugins/tabs.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax',
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            Global.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            Global.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            Global.refresh();
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>

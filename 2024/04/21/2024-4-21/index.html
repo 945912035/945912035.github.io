@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="人间烟火/张佳伟版">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2024/04/21/2024-4-21/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="网格可滑动表格摘要 (GridView)在网格中使用 widget 当列的内容超出渲染容器的时候，它会自动支持滚动。GridView.count 允许你制定列的数量GridView.extent 允许你制定单元格的最大宽度使用 GridView.count 创建一个网格，它在竖屏模式下有两行，在横屏模式下有三行。可以通过为每个 GridTile 设置 footer 属性来创建标题。https:&#x2F;&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="List&#x2F;Grid View">
+<meta property="og:url" content="http://example.com/2024/04/21/2024-4-21/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="网格可滑动表格摘要 (GridView)在网格中使用 widget 当列的内容超出渲染容器的时候，它会自动支持滚动。GridView.count 允许你制定列的数量GridView.extent 允许你制定单元格的最大宽度使用 GridView.count 创建一个网格，它在竖屏模式下有两行，在横屏模式下有三行。可以通过为每个 GridTile 设置 footer 属性来创建标题。https:&#x2F;&#x2F;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-04-21T13:56:03.000Z">
+<meta property="article:modified_time" content="2024-04-21T13:28:37.737Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="flutter">
+<meta property="article:tag" content="组件">
+<meta name="twitter:card" content="summary">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            List/Grid View -
+        
+        人间烟火的日常
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <style> @keyframes rubberBand { 0% { transform: scaleX(1); } 30% {transform: scale3d(1.25,.75,1);} 40% {transform: scale3d(.75,1.25,1);} 50% { transform: scale3d(1.15,.85,1);} 65% {transform: scale3d(.95,1.05,1);} 75% {transform: scale3d(1.05,.95,1);} 100% {transform: scaleX(1);} } .avatar img:hover { animation: rubberBand 1s; }</style>
+                
+    
+    <script id="hexo-configurations">
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"人间烟火的日常","subtitle":{"text":["世间万事,风云变幻,苍黄翻覆。纵使波谲云诡,但制心一处,便无事不办 !","天定胜人,人定兮胜天 !","谁都知道，不意味着谁都敢说 !"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/945912035","instagram":null,"zhihu":null,"twitter":null,"email":"945912035@qq.com"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.2.2","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"About":{"icon":"fa-regular fa-user","submenus":{"Github":"https://github.com/945912035","Blog":"https://945912035.github.io"}}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    Global.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    Global.data_config = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="main-content-container">
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                人间烟火的日常
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/archives"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-archive"></i>
+                                        
+                                        ARCHIVES
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown" 
+                                    href="#" onClick="return false;">
+                                    
+                                        
+                                            <i class="fa-regular fa-user"></i>
+                                        
+                                        ABOUT&nbsp;<i class="fa-solid fa-chevron-down"></i>
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://github.com/945912035">GITHUB
+                                        </a>
+                                        </li>
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://945912035.github.io">BLOG
+                                        </a>
+                                        </li>
+                                    
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer">
+        <ul class="drawer-navbar-list">
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/archives"  >
+                             
+                                
+                                    <i class="fa-regular fa-archive"></i>
+                                
+                                ARCHIVES
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="has-dropdown" 
+                        href="#" onClick="return false;">
+                            
+                                
+                                    <i class="fa-regular fa-user"></i>
+                                
+                                ABOUT&nbsp;<i class="fa-solid fa-chevron-down"></i>
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                              
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://github.com/945912035">GITHUB</a>
+                            </li>
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://945912035.github.io">BLOG</a>
+                            </li>
+                        
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                
+                  <h1 class="article-title-regular">List/Grid View</h1>
+                
+              </div>
+              
+                     
+            
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/lights-logo.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">人间烟火/张佳伟版</span>
+                            
+                                <span class="author-label">Lv1</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-04-21 21:56:03</span>
+        <span class="mobile">2024-04-21 21:56:03</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-04-21 21:28:37</span>
+            <span class="mobile">2024-04-21 21:28:37</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0/">日常学习</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/flutter/">flutter</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E7%BB%84%E4%BB%B6/">组件</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h4 id="网格可滑动表格"><a href="#网格可滑动表格" class="headerlink" title="网格可滑动表格"></a>网格可滑动表格</h4><h5 id="摘要-GridView"><a href="#摘要-GridView" class="headerlink" title="摘要 (GridView)"></a>摘要 (GridView)</h5><p>在网格中使用 widget</p>
+<p>当列的内容超出渲染容器的时候，它会自动支持滚动。<br>GridView.count 允许你制定列的数量<br>GridView.extent 允许你制定单元格的最大宽度<br>使用 GridView.count 创建一个网格，它在竖屏模式下有两行，在横屏模式下有三行。<br>可以通过为每个 GridTile 设置 footer 属性来创建标题。<br><a class="link"   target="_blank" rel="noopener" href="https://github.com/cfug/flutter.cn/tree/main/examples/layout/gallery/lib/grid_list_demo.dart" >https://github.com/cfug/flutter.cn/tree/main/examples/layout/gallery/lib/grid_list_demo.dart <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Widget _buildGrid() =&gt; GridView.extent(</span><br><span class="line">    maxCrossAxisExtent: 150,</span><br><span class="line">    padding: const EdgeInsets.all(4),</span><br><span class="line">    mainAxisSpacing: 4,</span><br><span class="line">    crossAxisSpacing: 4,</span><br><span class="line">    children: _buildGridTileList(30));</span><br><span class="line"></span><br><span class="line">// The images are saved with names pic0.jpg, pic1.jpg...pic29.jpg.</span><br><span class="line">// The List.generate() constructor allows an easy way to create</span><br><span class="line">// a list when objects have a predictable naming pattern.</span><br><span class="line">List&lt;Container&gt; _buildGridTileList(int count) =&gt; List.generate(</span><br><span class="line">    count, (i) =&gt; Container(child: Image.asset(&#x27;images/pic$i.jpg&#x27;)));</span><br><span class="line">···</span><br><span class="line"></span><br><span class="line">···</span><br><span class="line">GridView.count(</span><br><span class="line">  // Create a grid with 2 columns. If you change the scrollDirection to</span><br><span class="line">  // horizontal, this produces 2 rows.</span><br><span class="line">  crossAxisCount: 2,</span><br><span class="line">  // Generate 100 widgets that display their index in the List.</span><br><span class="line">  children: List.generate(100, (index) &#123;</span><br><span class="line">    return Center(</span><br><span class="line">      child: Text(</span><br><span class="line">        &#x27;Item $index&#x27;,</span><br><span class="line">        style: Theme.of(context).textTheme.headlineSmall,</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;),</span><br><span class="line">),</span><br></pre></td></tr></table></figure></div>
+
+
+<h5 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h5><p>ListView，一个和列很相似的 widget，当内容长于自己的渲染盒时，就会自动支持滚动。<br>标准的 ListView 构造函数适用于短列表，对于具有大量列表项的长列表，需要用 ListView.builder 构造函数来创建。<br>与标准的 ListView 构造函数需要一次性创建所有列表项不同的是， ListView.builder 构造函数只在列表项从屏幕外滑入屏幕时才去创建列表项。</p>
+<p>摘要 (ListView)<br>一个用来组织盒子中列表的专用 Column<br>可以水平或者垂直布局<br>当监测到空间不足时，会提供滚动<br>比 Column 的配置少，使用更容易，并且支持滚动<br>通过指定 scrollDirection 的值为水平方向，来覆盖默认的竖直方向</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">Widget _buildList() &#123;</span><br><span class="line">  return ListView(</span><br><span class="line">    children: [</span><br><span class="line">      _tile(&#x27;CineArts at the Empire&#x27;, &#x27;85 W Portal Ave&#x27;, Icons.theaters),</span><br><span class="line">      _tile(&#x27;The Castro Theater&#x27;, &#x27;429 Castro St&#x27;, Icons.theaters),</span><br><span class="line">      _tile(&#x27;Alamo Drafthouse Cinema&#x27;, &#x27;2550 Mission St&#x27;, Icons.theaters),</span><br><span class="line">      _tile(&#x27;Roxie Theater&#x27;, &#x27;3117 16th St&#x27;, Icons.theaters),</span><br><span class="line">      _tile(&#x27;United Artists Stonestown Twin&#x27;, &#x27;501 Buckingham Way&#x27;,</span><br><span class="line">          Icons.theaters),</span><br><span class="line">      _tile(&#x27;AMC Metreon 16&#x27;, &#x27;135 4th St #3000&#x27;, Icons.theaters),</span><br><span class="line">      const Divider(),</span><br><span class="line">      _tile(&#x27;K\&#x27;s Kitchen&#x27;, &#x27;757 Monterey Blvd&#x27;, Icons.restaurant),</span><br><span class="line">      _tile(&#x27;Emmy\&#x27;s Restaurant&#x27;, &#x27;1923 Ocean Ave&#x27;, Icons.restaurant),</span><br><span class="line">      _tile(&#x27;Chaiya Thai Restaurant&#x27;, &#x27;272 Claremont Blvd&#x27;, Icons.restaurant),</span><br><span class="line">      _tile(&#x27;La Ciccia&#x27;, &#x27;291 30th St&#x27;, Icons.restaurant),</span><br><span class="line">    ],</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ListTile _tile(String title, String subtitle, IconData icon) &#123;</span><br><span class="line">  return ListTile(</span><br><span class="line">    title: Text(title,</span><br><span class="line">        style: const TextStyle(</span><br><span class="line">          fontWeight: FontWeight.w500,</span><br><span class="line">          fontSize: 20,</span><br><span class="line">        )),</span><br><span class="line">    subtitle: Text(subtitle),</span><br><span class="line">    leading: Icon(</span><br><span class="line">      icon,</span><br><span class="line">      color: Colors.blue[500],</span><br><span class="line">    ),</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="下面举例创建一个带数据的列表"><a href="#下面举例创建一个带数据的列表" class="headerlink" title="下面举例创建一个带数据的列表"></a>下面举例创建一个带数据的列表</h4><h5 id="1-创建数据源"><a href="#1-创建数据源" class="headerlink" title="1. 创建数据源"></a>1. 创建数据源</h5><p>首先，需要获取列表的数据源。例如，数据源可以是消息集、搜索结果集或者商店商品集。大部分情况下，这些数据来自于网络请求或者数据库获取。</p>
+<p>在下面的例子，使用 List.generate 构造函数生成包含 10,000 个字符串的集合。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt;.generate(10000, (i) =&gt; &#x27;Item $i&#x27;),</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="2-将数据源渲染成组件"><a href="#2-将数据源渲染成组件" class="headerlink" title="2. 将数据源渲染成组件"></a>2. 将数据源渲染成组件</h5><p>为了将字符串集合展示出来，需要通过 ListView.builder 把集合中的每个字符串都渲染成组件。</p>
+<p>在下面的例子中，将会把每个字符串用单行列表项显示在列表中。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ListView.builder(</span><br><span class="line">  itemCount: items.length,</span><br><span class="line">  prototypeItem: ListTile(</span><br><span class="line">    title: Text(items.first),</span><br><span class="line">  ),</span><br><span class="line">  itemBuilder: (context, index) &#123;</span><br><span class="line">    return ListTile(</span><br><span class="line">      title: Text(items[index]),</span><br><span class="line">    );</span><br><span class="line">  &#125;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h5><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">import &#x27;package:flutter/material.dart&#x27;;</span><br><span class="line"></span><br><span class="line">void main() &#123;</span><br><span class="line">  runApp(</span><br><span class="line">    MyApp(</span><br><span class="line">      items: List&lt;String&gt;.generate(10000, (i) =&gt; &#x27;Item $i&#x27;),</span><br><span class="line">    ),</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line">  final List&lt;String&gt; items;</span><br><span class="line"></span><br><span class="line">  const MyApp(&#123;super.key, required this.items&#125;);</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    const title = &#x27;Long List&#x27;;</span><br><span class="line"></span><br><span class="line">    return MaterialApp(</span><br><span class="line">      title: title,</span><br><span class="line">      home: Scaffold(</span><br><span class="line">        appBar: AppBar(</span><br><span class="line">          title: const Text(title),</span><br><span class="line">        ),</span><br><span class="line">        body: ListView.builder(</span><br><span class="line">          itemCount: items.length,</span><br><span class="line">          prototypeItem: ListTile(</span><br><span class="line">            title: Text(items.first),</span><br><span class="line">          ),</span><br><span class="line">          itemBuilder: (context, index) &#123;</span><br><span class="line">            return ListTile(</span><br><span class="line">              title: Text(items[index]),</span><br><span class="line">            );</span><br><span class="line">          &#125;,</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="创建展示不同类型内容的列表"><a href="#创建展示不同类型内容的列表" class="headerlink" title="创建展示不同类型内容的列表"></a>创建展示不同类型内容的列表</h4><p>比方说，我们可能在开发一个列表，它显示一个标题，后跟一些与标题相关的项目，然后是另一个标题，依此类推。</p>
+<h6 id="创建一个拥有不同类型项目的数据源"><a href="#创建一个拥有不同类型项目的数据源" class="headerlink" title="创建一个拥有不同类型项目的数据源"></a>创建一个拥有不同类型项目的数据源</h6><h6 id="将数据源的数据转换成列表-widget"><a href="#将数据源的数据转换成列表-widget" class="headerlink" title="将数据源的数据转换成列表 widget"></a>将数据源的数据转换成列表 widget</h6><ol>
+<li>创建一个具有不同类型项目的数据源</li>
+</ol>
+<p>为了表示 List 中不同类型的项，我们需要为每一个类型的项目定义一个类。</p>
+<p>在这个例子中，我们将制作一个展示了标题，后面有五条消息的应用。因此，我们将创建三个类：ListItem、HeadingItem 和 MessageItem。</p>
+<p>你可以通过以下步骤，用 Flutter 创建这样的结构：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">/// The base class for the different types of items the list can contain.</span><br><span class="line">abstract class ListItem &#123;</span><br><span class="line">  /// The title line to show in a list item.</span><br><span class="line">  Widget buildTitle(BuildContext context);</span><br><span class="line"></span><br><span class="line">  /// The subtitle line, if any, to show in a list item.</span><br><span class="line">  Widget buildSubtitle(BuildContext context);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/// A ListItem that contains data to display a heading.</span><br><span class="line">class HeadingItem implements ListItem &#123;</span><br><span class="line">  final String heading;</span><br><span class="line"></span><br><span class="line">  HeadingItem(this.heading);</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget buildTitle(BuildContext context) &#123;</span><br><span class="line">    return Text(</span><br><span class="line">      heading,</span><br><span class="line">      style: Theme.of(context).textTheme.headlineSmall,</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget buildSubtitle(BuildContext context) =&gt; const SizedBox.shrink();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/// A ListItem that contains data to display a message.</span><br><span class="line">class MessageItem implements ListItem &#123;</span><br><span class="line">  final String sender;</span><br><span class="line">  final String body;</span><br><span class="line"></span><br><span class="line">  MessageItem(this.sender, this.body);</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget buildTitle(BuildContext context) =&gt; Text(sender);</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget buildSubtitle(BuildContext context) =&gt; Text(body);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">final items = List&lt;ListItem&gt;.generate(</span><br><span class="line">  1000,</span><br><span class="line">  (i) =&gt; i % 6 == 0</span><br><span class="line">      ? HeadingItem(&#x27;Heading $i&#x27;)</span><br><span class="line">      : MessageItem(&#x27;Sender $i&#x27;, &#x27;Message body $i&#x27;),</span><br><span class="line">);</span><br></pre></td></tr></table></figure></div>
+<ol start="2">
+<li>将数据源的数据转换成列表 widget</li>
+</ol>
+<p>为了把每一个项目转换成 widget，我们将采用 ListView.builder() 构造方法。<br>通常，我们需要提供一个 builder 函数来确定我们正在处理的项目类型，并返回该类型项目的相应 widget。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ListView.builder(</span><br><span class="line">  // Let the ListView know how many items it needs to build.</span><br><span class="line">  itemCount: items.length,</span><br><span class="line">  // Provide a builder function. This is where the magic happens.</span><br><span class="line">  // Convert each item into a widget based on the type of item it is.</span><br><span class="line">  itemBuilder: (context, index) &#123;</span><br><span class="line">    final item = items[index];</span><br><span class="line"></span><br><span class="line">    return ListTile(</span><br><span class="line">      title: item.buildTitle(context),</span><br><span class="line">      subtitle: item.buildSubtitle(context),</span><br><span class="line">    );</span><br><span class="line">  &#125;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure></div>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> List/Grid View</li>
+        <li><strong>Author:</strong> 人间烟火/张佳伟版</li>
+        <li><strong>Created at:</strong> 2024-04-21 21:56:03</li>
+        
+            <li>
+                <strong>Updated at:</strong> 2024-04-21 21:28:37
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://945912035.github.io/2024/04/21/2024-4-21/
+        </li>
+        <li>
+            <strong>License:</strong> This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>.
+        </li>
+    </ul>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/flutter/">#flutter</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E7%BB%84%E4%BB%B6/">#组件</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2024/04/22/2024-4-22/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">Scaffold</span>
+                                    <span class="post-nav-item">Prev posts</span>
+                                </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2024/04/20/2024-4-20/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">可视化组件、常见的Widget</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+
+            
+                <div class="comment-container">
+                    <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fa-solid fa-comments"></i>&nbsp;Comments
+    </div>
+    
+
+        
+            
+ 
+    <div id="waline"></div>
+    <script type="module"  data-pjax>
+        import { init } from 'https://evan.beee.top/js/waline.mjs';
+
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://example.example.com',
+                lang: 'zh-CN',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+            });
+        }
+
+        if ('true') {
+            const loadWalineTimeout = setTimeout(() => {
+                loadWaline();
+                clearTimeout(loadWalineTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadWaline);
+        }
+        
+    </script>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">List/Grid View</div>
+        
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+            
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">人间烟火/张佳伟版</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        VISITOR COUNT&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        TOTAL PAGE VIEWS&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a></span>
+                <br>
+            <span class="theme-version-container">THEME&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.2.2</a>
+        </div>
+        
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+            <script async data-pjax>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/layouts/navbarShrink.js"></script>
+
+<script src="/js/tools/scrollTopBottom.js"></script>
+
+<script src="/js/tools/lightDarkSwitch.js"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/tools/tocToggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/layouts/toc.js"></script>
+
+<script src="/js/plugins/tabs.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax',
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            Global.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            Global.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            Global.refresh();
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
