@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="人间烟火/张佳伟版">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2024/05/09/2024-05-09/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="对话框 AlertDialog 1234567891011121314151617AlertDialog(  title: Text(&quot;提示&quot;),  content: Text(&quot;您确定要删除当前文件吗?&quot;),  actions: &lt;Widget&gt;[    TextButton(      child: Text(&quot;取消&quot;),">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对话框">
+<meta property="og:url" content="http://example.com/2024/05/09/2024-05-09/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="对话框 AlertDialog 1234567891011121314151617AlertDialog(  title: Text(&quot;提示&quot;),  content: Text(&quot;您确定要删除当前文件吗?&quot;),  actions: &lt;Widget&gt;[    TextButton(      child: Text(&quot;取消&quot;),">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-05-09T14:23:26.036Z">
+<meta property="article:modified_time" content="2024-05-09T14:24:00.317Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="flutter">
+<meta property="article:tag" content="组件">
+<meta name="twitter:card" content="summary">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            对话框 -
+        
+        人间烟火的日常
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+            
+                
+                    <style> @keyframes rubberBand { 0% { transform: scaleX(1); } 30% {transform: scale3d(1.25,.75,1);} 40% {transform: scale3d(.75,1.25,1);} 50% { transform: scale3d(1.15,.85,1);} 65% {transform: scale3d(.95,1.05,1);} 75% {transform: scale3d(1.05,.95,1);} 100% {transform: scaleX(1);} } .avatar img:hover { animation: rubberBand 1s; }</style>
+                
+    
+    <script id="hexo-configurations">
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"人间烟火的日常","subtitle":{"text":["世间万事,风云变幻,苍黄翻覆。纵使波谲云诡,但制心一处,便无事不办 !","天定胜人,人定兮胜天 !","谁都知道，不意味着谁都敢说 !"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/945912035","instagram":null,"zhihu":null,"twitter":null,"email":"945912035@qq.com"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.2.2","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"About":{"icon":"fa-regular fa-user","submenus":{"Github":"https://github.com/945912035","Blog":"https://945912035.github.io"}}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    Global.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    Global.data_config = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="main-content-container">
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                人间烟火的日常
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/archives"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-archive"></i>
+                                        
+                                        ARCHIVES
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown" 
+                                    href="#" onClick="return false;">
+                                    
+                                        
+                                            <i class="fa-regular fa-user"></i>
+                                        
+                                        ABOUT&nbsp;<i class="fa-solid fa-chevron-down"></i>
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://github.com/945912035">GITHUB
+                                        </a>
+                                        </li>
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://945912035.github.io">BLOG
+                                        </a>
+                                        </li>
+                                    
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer">
+        <ul class="drawer-navbar-list">
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/archives"  >
+                             
+                                
+                                    <i class="fa-regular fa-archive"></i>
+                                
+                                ARCHIVES
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="has-dropdown" 
+                        href="#" onClick="return false;">
+                            
+                                
+                                    <i class="fa-regular fa-user"></i>
+                                
+                                ABOUT&nbsp;<i class="fa-solid fa-chevron-down"></i>
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                              
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://github.com/945912035">GITHUB</a>
+                            </li>
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://945912035.github.io">BLOG</a>
+                            </li>
+                        
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                
+                  <h1 class="article-title-regular">对话框</h1>
+                
+              </div>
+              
+                     
+            
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/lights-logo.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">人间烟火/张佳伟版</span>
+                            
+                                <span class="author-label">Lv2</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-05-09 22:23:26</span>
+        <span class="mobile">2024-05-09 22:23:26</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-05-09 22:24</span>
+            <span class="mobile">2024-05-09 22:24</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0/">日常学习</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/flutter/">flutter</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E7%BB%84%E4%BB%B6/">组件</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <p>对话框</p>
+<p>AlertDialog</p>
+<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">AlertDialog(</span><br><span class="line">  title: Text(<span class="string">&quot;提示&quot;</span>),</span><br><span class="line">  content: Text(<span class="string">&quot;您确定要删除当前文件吗?&quot;</span>),</span><br><span class="line">  actions: &lt;Widget&gt;[</span><br><span class="line">    TextButton(</span><br><span class="line">      child: Text(<span class="string">&quot;取消&quot;</span>),</span><br><span class="line">      onPressed: () =&gt; Navigator.of(context).pop(), <span class="comment">//关闭对话框</span></span><br><span class="line">    ),</span><br><span class="line">    TextButton(</span><br><span class="line">      child: Text(<span class="string">&quot;删除&quot;</span>),</span><br><span class="line">      onPressed: () &#123;</span><br><span class="line">        <span class="comment">// ... 执行删除操作</span></span><br><span class="line">        Navigator.of(context).pop(<span class="keyword">true</span>); <span class="comment">//关闭对话框</span></span><br><span class="line">      &#125;,</span><br><span class="line">    ),</span><br><span class="line">  ],</span><br><span class="line">);</span><br></pre></td></tr></table></figure></div>
+<h5 id="现在，对话框我们已经构建好了，那么如何将它弹出来呢？还有对话框返回的数据应如何被接收呢？这些问题的答案都在showDialog-方法中。"><a href="#现在，对话框我们已经构建好了，那么如何将它弹出来呢？还有对话框返回的数据应如何被接收呢？这些问题的答案都在showDialog-方法中。" class="headerlink" title="现在，对话框我们已经构建好了，那么如何将它弹出来呢？还有对话框返回的数据应如何被接收呢？这些问题的答案都在showDialog()方法中。"></a>现在，对话框我们已经构建好了，那么如何将它弹出来呢？还有对话框返回的数据应如何被接收呢？这些问题的答案都在showDialog()方法中。</h5><p>showDialog()是Material组件库提供的一个用于弹出Material风格对话框的方法，签名如下：<br>该方法只有两个参数，含义见注释。该方法返回一个Future，它正是用于接收对话框的返回值：如果我们是通过点击对话框遮罩关闭的，则Future的值为null，否则为我们通过Navigator.of(context).pop(result)返回的result值</p>
+<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Future&lt;T?&gt; showDialog&lt;T&gt;(&#123;</span><br><span class="line">  <span class="keyword">required</span> BuildContext context,</span><br><span class="line">  <span class="keyword">required</span> WidgetBuilder builder, <span class="comment">// 对话框UI的builder</span></span><br><span class="line">  <span class="built_in">bool</span> barrierDismissible = <span class="keyword">true</span>, <span class="comment">//点击对话框barrier(遮罩)时是否关闭它</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//点击该按钮后弹出对话框</span></span><br><span class="line">ElevatedButton(</span><br><span class="line">  child: Text(<span class="string">&quot;对话框1&quot;</span>),</span><br><span class="line">  onPressed: () <span class="keyword">async</span> &#123;</span><br><span class="line">    <span class="comment">//弹出对话框并等待其关闭</span></span><br><span class="line">    <span class="built_in">bool?</span> delete = <span class="keyword">await</span> showDeleteConfirmDialog1();</span><br><span class="line">    <span class="keyword">if</span> (delete == <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">&quot;取消删除&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">print</span>(<span class="string">&quot;已确认删除&quot;</span>);</span><br><span class="line">      <span class="comment">//... 删除文件</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">),</span><br><span class="line"></span><br><span class="line"><span class="comment">// 弹出对话框</span></span><br><span class="line">Future&lt;<span class="built_in">bool?</span>&gt; showDeleteConfirmDialog1() &#123;</span><br><span class="line">  <span class="keyword">return</span> showDialog&lt;<span class="built_in">bool</span>&gt;(</span><br><span class="line">    context: context,</span><br><span class="line">    builder: (context) &#123;</span><br><span class="line">      <span class="keyword">return</span> AlertDialog(</span><br><span class="line">        title: Text(<span class="string">&quot;提示&quot;</span>),</span><br><span class="line">        content: Text(<span class="string">&quot;您确定要删除当前文件吗?&quot;</span>),</span><br><span class="line">        actions: &lt;Widget&gt;[</span><br><span class="line">          TextButton(</span><br><span class="line">            child: Text(<span class="string">&quot;取消&quot;</span>),</span><br><span class="line">            onPressed: () =&gt; Navigator.of(context).pop(), <span class="comment">// 关闭对话框</span></span><br><span class="line">          ),</span><br><span class="line">          TextButton(</span><br><span class="line">            child: Text(<span class="string">&quot;删除&quot;</span>),</span><br><span class="line">            onPressed: () &#123;</span><br><span class="line">              <span class="comment">//关闭对话框并返回true</span></span><br><span class="line">              Navigator.of(context).pop(<span class="keyword">true</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">          ),</span><br><span class="line">        ],</span><br><span class="line">      );</span><br><span class="line">    &#125;,</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>注意：如果AlertDialog的内容过长，内容将会溢出，这在很多时候可能不是我们期望的，所以如果对话框内容过长时，可以用SingleChildScrollView将内容包裹起来。</p>
+<h5 id="2-SimpleDialog"><a href="#2-SimpleDialog" class="headerlink" title="2. SimpleDialog"></a>2. SimpleDialog</h5><p>SimpleDialog也是Material组件库提供的对话框，它会展示一个列表，用于列表选择的场景</p>
+<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">Future&lt;<span class="keyword">void</span>&gt; changeLanguage() <span class="keyword">async</span> &#123;</span><br><span class="line">  <span class="built_in">int?</span> i = <span class="keyword">await</span> showDialog&lt;<span class="built_in">int</span>&gt;(</span><br><span class="line">      context: context,</span><br><span class="line">      builder: (BuildContext context) &#123;</span><br><span class="line">        <span class="keyword">return</span> SimpleDialog(</span><br><span class="line">          title: <span class="keyword">const</span> Text(<span class="string">&#x27;请选择语言&#x27;</span>),</span><br><span class="line">          children: &lt;Widget&gt;[</span><br><span class="line">            SimpleDialogOption(</span><br><span class="line">              onPressed: () &#123;</span><br><span class="line">                <span class="comment">// 返回1</span></span><br><span class="line">                Navigator.pop(context, <span class="number">1</span>);</span><br><span class="line">              &#125;,</span><br><span class="line">              child: Padding(</span><br><span class="line">                padding: <span class="keyword">const</span> EdgeInsets.symmetric(vertical: <span class="number">6</span>),</span><br><span class="line">                child: <span class="keyword">const</span> Text(<span class="string">&#x27;中文简体&#x27;</span>),</span><br><span class="line">              ),</span><br><span class="line">            ),</span><br><span class="line">            SimpleDialogOption(</span><br><span class="line">              onPressed: () &#123;</span><br><span class="line">                <span class="comment">// 返回2</span></span><br><span class="line">                Navigator.pop(context, <span class="number">2</span>);</span><br><span class="line">              &#125;,</span><br><span class="line">              child: Padding(</span><br><span class="line">                padding: <span class="keyword">const</span> EdgeInsets.symmetric(vertical: <span class="number">6</span>),</span><br><span class="line">                child: <span class="keyword">const</span> Text(<span class="string">&#x27;美国英语&#x27;</span>),</span><br><span class="line">              ),</span><br><span class="line">            ),</span><br><span class="line">          ],</span><br><span class="line">        );</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (i != <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;选择了：<span class="subst">$&#123;i == <span class="number">1</span> ? <span class="string">&quot;中文简体&quot;</span> : <span class="string">&quot;美国英语&quot;</span>&#125;</span>&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>列表项组件我们使用了SimpleDialogOption组件来包装了一下，它相当于一个TextButton，只不过按钮文案是左对齐的，并且padding较小。上面示例运行后，用户选择一种语言后，控制台就会打印出它。</p>
+<h5 id="3-Dialog"><a href="#3-Dialog" class="headerlink" title="3. Dialog"></a>3. Dialog</h5><p>实际上AlertDialog和SimpleDialog都使用了Dialog类。由于AlertDialog和SimpleDialog中使用了IntrinsicWidth来尝试通过子组件的实际尺寸来调整自身尺寸，这就导致他们的子组件不能是延迟加载模型的组件（如ListView、GridView 、 CustomScrollView等），如下面的代码运行后会报错。</p>
+<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">Future&lt;<span class="keyword">void</span>&gt; showListDialog() <span class="keyword">async</span> &#123;</span><br><span class="line">  <span class="built_in">int?</span> index = <span class="keyword">await</span> showDialog&lt;<span class="built_in">int</span>&gt;(</span><br><span class="line">    context: context,</span><br><span class="line">    builder: (BuildContext context) &#123;</span><br><span class="line">      <span class="keyword">var</span> child = Column(</span><br><span class="line">        children: &lt;Widget&gt;[</span><br><span class="line">          ListTile(title: Text(<span class="string">&quot;请选择&quot;</span>)),</span><br><span class="line">          Expanded(</span><br><span class="line">              child: ListView.builder(</span><br><span class="line">            itemCount: <span class="number">30</span>,</span><br><span class="line">            itemBuilder: (BuildContext context, <span class="built_in">int</span> index) &#123;</span><br><span class="line">              <span class="keyword">return</span> ListTile(</span><br><span class="line">                title: Text(<span class="string">&quot;<span class="subst">$index</span>&quot;</span>),</span><br><span class="line">                onTap: () =&gt; Navigator.of(context).pop(index),</span><br><span class="line">              );</span><br><span class="line">            &#125;,</span><br><span class="line">          )),</span><br><span class="line">        ],</span><br><span class="line">      );</span><br><span class="line">      <span class="comment">//使用AlertDialog会报错</span></span><br><span class="line">      <span class="comment">//return AlertDialog(content: child);</span></span><br><span class="line">      <span class="comment">// return Dialog(child: child) </span></span><br><span class="line">				<span class="keyword">return</span> UnconstrainedBox(</span><br><span class="line">				  constrainedAxis: Axis.vertical,</span><br><span class="line">				  child: ConstrainedBox(</span><br><span class="line">				    constraints: BoxConstraints(maxWidth: <span class="number">280</span>),</span><br><span class="line">				    child: Material(</span><br><span class="line">				      child: child,</span><br><span class="line">				      type: MaterialType.card,</span><br><span class="line">				    ),</span><br><span class="line">				  ),</span><br><span class="line">);</span><br><span class="line">    &#125;,</span><br><span class="line">  );</span><br><span class="line">  <span class="keyword">if</span> (index != <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;点击了：<span class="subst">$index</span>&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>可能有些读者会惯性的以为在builder中只能返回这三者之一，其实这不是必须的！就拿Dialog的示例来举例，我们完全可以用下面的代码来替代Dialog</p>
+<h4 id="拓展的对话框"><a href="#拓展的对话框" class="headerlink" title="拓展的对话框"></a>拓展的对话框</h4><p>那如何打开一个普通风格的对话框呢（非Material风格）？ Flutter 提供了一个showGeneralDialog方法，签名如下：</p>
+<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Future&lt;T?&gt; showGeneralDialog&lt;T&gt;(&#123;</span><br><span class="line">  <span class="keyword">required</span> BuildContext context,</span><br><span class="line">  <span class="keyword">required</span> RoutePageBuilder pageBuilder, <span class="comment">//构建对话框内部UI</span></span><br><span class="line">  <span class="built_in">bool</span> barrierDismissible = <span class="keyword">false</span>, <span class="comment">//点击遮罩是否关闭对话框</span></span><br><span class="line">  <span class="built_in">String?</span> barrierLabel, <span class="comment">// 语义化标签(用于读屏软件)</span></span><br><span class="line">  Color barrierColor = <span class="keyword">const</span> Color(<span class="number">0x80000000</span>), <span class="comment">// 遮罩颜色</span></span><br><span class="line">  <span class="built_in">Duration</span> transitionDuration = <span class="keyword">const</span> <span class="built_in">Duration</span>(milliseconds: <span class="number">200</span>), <span class="comment">// 对话框打开/关闭的动画时长</span></span><br><span class="line">  RouteTransitionsBuilder? transitionBuilder, <span class="comment">// 对话框打开/关闭的动画</span></span><br><span class="line">  ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div>
+
+
+<p>下面我们自己封装一个showCustomDialog方法，它定制的对话框动画为缩放动画，并同时制定遮罩颜色为Colors.black87：</p>
+<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">Future&lt;T?&gt; showCustomDialog&lt;T&gt;(&#123;</span><br><span class="line">  <span class="keyword">required</span> BuildContext context,</span><br><span class="line">  <span class="built_in">bool</span> barrierDismissible = <span class="keyword">true</span>,</span><br><span class="line">  <span class="keyword">required</span> WidgetBuilder builder,</span><br><span class="line">  ThemeData? theme,</span><br><span class="line">&#125;) &#123;</span><br><span class="line">  <span class="keyword">final</span> ThemeData theme = Theme.of(context, shadowThemeOnly: <span class="keyword">true</span>);</span><br><span class="line">  <span class="keyword">return</span> showGeneralDialog(</span><br><span class="line">    context: context,</span><br><span class="line">    pageBuilder: (BuildContext buildContext, Animation&lt;<span class="built_in">double</span>&gt; animation,</span><br><span class="line">        Animation&lt;<span class="built_in">double</span>&gt; secondaryAnimation) &#123;</span><br><span class="line">      <span class="keyword">final</span> Widget pageChild = Builder(builder: builder);</span><br><span class="line">      <span class="keyword">return</span> SafeArea(</span><br><span class="line">        child: Builder(builder: (BuildContext context) &#123;</span><br><span class="line">          <span class="keyword">return</span> theme != <span class="keyword">null</span></span><br><span class="line">              ? Theme(data: theme, child: pageChild)</span><br><span class="line">              : pageChild;</span><br><span class="line">        &#125;),</span><br><span class="line">      );</span><br><span class="line">    &#125;,</span><br><span class="line">    barrierDismissible: barrierDismissible,</span><br><span class="line">    barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,</span><br><span class="line">    barrierColor: Colors.black87, <span class="comment">// 自定义遮罩颜色</span></span><br><span class="line">    transitionDuration: <span class="keyword">const</span> <span class="built_in">Duration</span>(milliseconds: <span class="number">150</span>),</span><br><span class="line">    transitionBuilder: _buildMaterialDialogTransitions,</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Widget _buildMaterialDialogTransitions(</span><br><span class="line">    BuildContext context,</span><br><span class="line">    Animation&lt;<span class="built_in">double</span>&gt; animation,</span><br><span class="line">    Animation&lt;<span class="built_in">double</span>&gt; secondaryAnimation,</span><br><span class="line">    Widget child) &#123;</span><br><span class="line">  <span class="comment">// 使用缩放动画</span></span><br><span class="line">  <span class="keyword">return</span> ScaleTransition(</span><br><span class="line">    scale: CurvedAnimation(</span><br><span class="line">      parent: animation,</span><br><span class="line">      curve: Curves.easeOut,</span><br><span class="line">    ),</span><br><span class="line">    child: child,</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> 对话框</li>
+        <li><strong>Author:</strong> 人间烟火/张佳伟版</li>
+        <li><strong>Created at:</strong> 2024-05-09 22:23:26</li>
+        
+            <li>
+                <strong>Updated at:</strong> 2024-05-09 22:24:00
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://945912035.github.io/2024/05/09/2024-05-09/
+        </li>
+        <li>
+            <strong>License:</strong> This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>.
+        </li>
+    </ul>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/flutter/">#flutter</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E7%BB%84%E4%BB%B6/">#组件</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2024/04/25/2024-4-25%20(1)/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">复习CustomControllView、SliverList、GirdList</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+
+            
+                <div class="comment-container">
+                    <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fa-solid fa-comments"></i>&nbsp;Comments
+    </div>
+    
+
+        
+            
+ 
+    <div id="waline"></div>
+    <script type="module"  data-pjax>
+        import { init } from 'https://evan.beee.top/js/waline.mjs';
+
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://example.example.com',
+                lang: 'zh-CN',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+            });
+        }
+
+        if ('true') {
+            const loadWalineTimeout = setTimeout(() => {
+                loadWaline();
+                clearTimeout(loadWalineTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadWaline);
+        }
+        
+    </script>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">对话框</div>
+        
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+            
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">人间烟火/张佳伟版</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        VISITOR COUNT&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        TOTAL PAGE VIEWS&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a></span>
+                <br>
+            <span class="theme-version-container">THEME&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.2.2</a>
+        </div>
+        
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+            <script async data-pjax>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/layouts/navbarShrink.js"></script>
+
+<script src="/js/tools/scrollTopBottom.js"></script>
+
+<script src="/js/tools/lightDarkSwitch.js"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/tools/tocToggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/layouts/toc.js"></script>
+
+<script src="/js/plugins/tabs.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax',
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            Global.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            Global.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            Global.refresh();
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
