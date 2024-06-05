@@ -13,20 +13,20 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/2024/05/22/2024-05-22/"/>
+    <link rel="canonical" href="http://example.com/2024/06/05/2024-06-05/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="太久没坚持学习，已经被俊给批评了，现在重操旧业。在一个App中，我们经常需要一个类似广播的东西来在各个模块之间发布通知或者通知更新状态这个就是事件总线，通常它实现了订阅者模式（包含发布者和订阅者），可以通过事件总线来触发事件和监听事件下面实现一个简单的全局事件总线，我们使用单列模式（dart语言中，私有化可以使用”_”作名称前缀）来实现Dart中实现单例模式的标准做法就是使用static变量+工厂">
+        <meta name="description" content="Flutter 的动画要素：Animation、Curve、Controller、Tween Animation：主要功能是保存动画的插值和状态，其中比较常用的是 AnimationAnimation对象在整个动画执行过程中输出的值是可以线性的、曲线的或其他曲线函数，这由Curve来决定Animation对象是一个在一段时间内依次生成一个区间（tween）之间值的类Animation对象的控制Co">
 <meta property="og:type" content="article">
-<meta property="og:title" content="事件总线">
-<meta property="og:url" content="http://example.com/2024/05/22/2024-05-22/index.html">
+<meta property="og:title" content="Flutter 的动画">
+<meta property="og:url" content="http://example.com/2024/06/05/2024-06-05/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="太久没坚持学习，已经被俊给批评了，现在重操旧业。在一个App中，我们经常需要一个类似广播的东西来在各个模块之间发布通知或者通知更新状态这个就是事件总线，通常它实现了订阅者模式（包含发布者和订阅者），可以通过事件总线来触发事件和监听事件下面实现一个简单的全局事件总线，我们使用单列模式（dart语言中，私有化可以使用”_”作名称前缀）来实现Dart中实现单例模式的标准做法就是使用static变量+工厂">
+<meta property="og:description" content="Flutter 的动画要素：Animation、Curve、Controller、Tween Animation：主要功能是保存动画的插值和状态，其中比较常用的是 AnimationAnimation对象在整个动画执行过程中输出的值是可以线性的、曲线的或其他曲线函数，这由Curve来决定Animation对象是一个在一段时间内依次生成一个区间（tween）之间值的类Animation对象的控制Co">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-05-22T15:12:45.032Z">
-<meta property="article:modified_time" content="2024-05-22T14:44:12.499Z">
+<meta property="article:published_time" content="2024-06-05T14:36:33.000Z">
+<meta property="article:modified_time" content="2024-06-05T13:13:33.400Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="flutter">
 <meta property="article:tag" content="组件">
@@ -42,7 +42,7 @@
     
     <title>
         
-            事件总线 -
+            Flutter 的动画 -
         
         人间烟火的日常
     </title>
@@ -299,7 +299,7 @@
 
             <div class="article-title">
                 
-                  <h1 class="article-title-regular">事件总线</h1>
+                  <h1 class="article-title-regular">Flutter 的动画</h1>
                 
               </div>
               
@@ -321,15 +321,15 @@
                             <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2024-05-22 23:12:45</span>
-        <span class="mobile">2024-05-22 23:12:45</span>
+        <span class="desktop">2024-06-05 22:36:33</span>
+        <span class="mobile">2024-06-05 22:36:33</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-05-22 22:44:12</span>
-            <span class="mobile">2024-05-22 22:44:12</span>
+            <span class="desktop">2024-06-05 21:13:33</span>
+            <span class="mobile">2024-06-05 21:13:33</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -384,17 +384,65 @@
             
 
             <div class="article-content markdown-body">
-                <h5 id="太久没坚持学习，已经被俊给批评了，现在重操旧业。"><a href="#太久没坚持学习，已经被俊给批评了，现在重操旧业。" class="headerlink" title="太久没坚持学习，已经被俊给批评了，现在重操旧业。"></a>太久没坚持学习，已经被俊给批评了，现在重操旧业。</h5><h5 id="在一个App中，我们经常需要一个类似广播的东西来在各个模块之间发布通知或者通知更新状态"><a href="#在一个App中，我们经常需要一个类似广播的东西来在各个模块之间发布通知或者通知更新状态" class="headerlink" title="在一个App中，我们经常需要一个类似广播的东西来在各个模块之间发布通知或者通知更新状态"></a>在一个App中，我们经常需要一个类似广播的东西来在各个模块之间发布通知或者通知更新状态</h5><h5 id="这个就是事件总线，通常它实现了订阅者模式（包含发布者和订阅者），可以通过事件总线来触发事件和监听事件"><a href="#这个就是事件总线，通常它实现了订阅者模式（包含发布者和订阅者），可以通过事件总线来触发事件和监听事件" class="headerlink" title="这个就是事件总线，通常它实现了订阅者模式（包含发布者和订阅者），可以通过事件总线来触发事件和监听事件"></a>这个就是事件总线，通常它实现了订阅者模式（包含发布者和订阅者），可以通过事件总线来触发事件和监听事件</h5><h5 id="下面实现一个简单的全局事件总线，我们使用单列模式（dart语言中，私有化可以使用”-”作名称前缀）来实现"><a href="#下面实现一个简单的全局事件总线，我们使用单列模式（dart语言中，私有化可以使用”-”作名称前缀）来实现" class="headerlink" title="下面实现一个简单的全局事件总线，我们使用单列模式（dart语言中，私有化可以使用”_”作名称前缀）来实现"></a>下面实现一个简单的全局事件总线，我们使用单列模式（dart语言中，私有化可以使用”_”作名称前缀）来实现</h5><p>Dart中实现单例模式的标准做法就是使用static变量+工厂构造函数的方式，这样就可以保证EventBus()始终返回都是同一个实例，读者应该理解并掌握这种方法</p>
-<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//订阅者回调签名</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span> Eventcallback(arg);</span><br><span class="line"></span><br><span class="line"><span class="comment">//私有构造函数</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EventBus</span></span>&#123;</span><br><span class="line"> EventBus._internal();</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//单列模式</span></span><br><span class="line"><span class="keyword">static</span> EventBus _singleton = EventBus._internal();</span><br><span class="line"></span><br><span class="line"><span class="comment">//工厂构造函数</span></span><br><span class="line"><span class="keyword">factory</span> EventBus()&#123;</span><br><span class="line"> reture _singleton;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//保存事件订阅者队列，key:事件名(id)，value: 对应事件的订阅者队列</span></span><br><span class="line"><span class="keyword">final</span> _emap = <span class="built_in">Map</span>&lt;<span class="built_in">Object</span>,<span class="built_in">List</span>&lt;EventCallback&gt;?&gt;();</span><br><span class="line"><span class="comment">//添加订阅者</span></span><br><span class="line"><span class="keyword">void</span> <span class="keyword">on</span>(eventName,EventCallback callback)&#123;</span><br><span class="line"> _emap[eventName] ??= &lt;EventCallback&gt;[];</span><br><span class="line"> _emap[eventName]!.add(callback);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//移除订阅者</span></span><br><span class="line"><span class="keyword">void</span> off(eventName, [EventCallback? callback])&#123;</span><br><span class="line"> <span class="keyword">var</span> list = _emap[eventName];</span><br><span class="line"> <span class="keyword">if</span>(eventName == <span class="keyword">null</span> || list == <span class="keyword">null</span>) reture ;</span><br><span class="line"> <span class="keyword">if</span>(callback == <span class="keyword">null</span>)&#123;</span><br><span class="line">  _emap[eventName] = <span class="keyword">null</span>;</span><br><span class="line"> &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  list.remove(callback);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//触发事件，事件触发后该事件所有订阅者会被调用</span></span><br><span class="line"><span class="keyword">void</span> emit(eventName,[arg])&#123;</span><br><span class="line"> <span class="keyword">var</span> list = _emap[eventName];</span><br><span class="line"> <span class="keyword">if</span>(list == <span class="keyword">null</span>) <span class="keyword">return</span> ;</span><br><span class="line"> <span class="built_in">int</span> len = list.length <span class="number">-1</span>;</span><br><span class="line"> <span class="comment">//反向遍历，防止订阅者在回调中移除自身带来的下标错位</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">for</span>(<span class="keyword">var</span> i = len; i&gt;<span class="number">-1</span>;i++)&#123;</span><br><span class="line">  list[i](arg);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定义一个top-level（全局）变量，页面引入该文件后可以直接使用bus</span></span><br><span class="line"><span class="keyword">var</span> bus = EventBus();</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+                <h5 id="Flutter-的动画"><a href="#Flutter-的动画" class="headerlink" title="Flutter 的动画"></a>Flutter 的动画</h5><p>要素：Animation、Curve、Controller、Tween</p>
+<h5 id="Animation：主要功能是保存动画的插值和状态，其中比较常用的是-Animation"><a href="#Animation：主要功能是保存动画的插值和状态，其中比较常用的是-Animation" class="headerlink" title="Animation：主要功能是保存动画的插值和状态，其中比较常用的是 Animation"></a>Animation：主要功能是保存动画的插值和状态，其中比较常用的是 Animation<double></h5><h5 id="Animation对象在整个动画执行过程中输出的值是可以线性的、曲线的或其他曲线函数，这由Curve来决定"><a href="#Animation对象在整个动画执行过程中输出的值是可以线性的、曲线的或其他曲线函数，这由Curve来决定" class="headerlink" title="Animation对象在整个动画执行过程中输出的值是可以线性的、曲线的或其他曲线函数，这由Curve来决定"></a>Animation对象在整个动画执行过程中输出的值是可以线性的、曲线的或其他曲线函数，这由Curve来决定</h5><h5 id="Animation对象是一个在一段时间内依次生成一个区间（tween）之间值的类"><a href="#Animation对象是一个在一段时间内依次生成一个区间（tween）之间值的类" class="headerlink" title="Animation对象是一个在一段时间内依次生成一个区间（tween）之间值的类"></a>Animation对象是一个在一段时间内依次生成一个区间（tween）之间值的类</h5><h5 id="Animation对象的控制Controller可以控制动画的一些属性，正向、反向运行等"><a href="#Animation对象的控制Controller可以控制动画的一些属性，正向、反向运行等" class="headerlink" title="Animation对象的控制Controller可以控制动画的一些属性，正向、反向运行等"></a>Animation对象的控制Controller可以控制动画的一些属性，正向、反向运行等</h5><hr>
+<p>1）Animation</p>
+<p>Animation除了可以生成double类型值还可以Animation<Color>、Animation<Size><br>在动画的每一帧中，我们可以通过Animation对象的value 属性获取动画的当前状态值</p>
+<p>原理：可以通过Animation来监听动画每一帧以及执行状态的变化，Animation有如下两种方法:<br>1、addListener（）；他可以用于给Animation添加监听器，在每一帧都会被调用。<br>监听器中最常见的行为是改变状态后调用setState（）来触发UI重建</p>
+<p>2、addStatusListener（）；它可以给Animation添加“动画状态改变”监听器；动画开始、结束、正向或者反向时会调用状态改变的监听器</p>
+<p>2）Curve</p>
+<p>动画过程是可以匀速的、匀加速的或者先加速后减速等。<br>flutter通过Curve（曲线）来描述动画过程，匀加速动画称为线性的（Curves.linear）</p>
+<p>原理：我们可以通过 CurveAnimation 来指定动画的曲线</p>
+<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fianl CurveAnimation curve = CurvedAnimation(parent:controller, curve:Curves,easIn);</span><br></pre></td></tr></table></figure></div>
 
-<h4 id="使用示例："><a href="#使用示例：" class="headerlink" title="使用示例："></a>使用示例：</h4><p>页面A：</p>
-<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Page A</span></span><br><span class="line">bus.<span class="keyword">on</span>(<span class="string">&quot;login&quot;</span>,(arg))&#123;</span><br><span class="line"> <span class="comment">//do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>上面得知：CurveAnimation 可以通过包装 Animation 和 Curve 生成一个新的动画对象，我们正是通过这种方式来将动画和动画执行的曲线关联起来的</p>
+<p>Curves曲线 动画过程</p>
+<p>linear     匀速的<br>decelerate 匀减速<br>ease       开始加速，后面减速<br>easeIn     开始慢，后面快<br>easeOut     开始快，后面慢<br>easeInOut   开始慢，然后加速，最后再减速</p>
+<p>尝试自己制作一个Curve,通过继承再重写transform方法，例如定义一个正弦曲线：</p>
+<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShakeCurve</span> <span class="title">extend</span> <span class="title">Curve</span></span>&#123;</span><br><span class="line"> <span class="meta">@override</span></span><br><span class="line"> <span class="built_in">double</span> transform(<span class="built_in">double</span> t )&#123;</span><br><span class="line">  <span class="keyword">return</span> math.sin(t *math.PI *<span class="number">2</span>);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
 
-<p>页面B：</p>
-<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Page B</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//login success</span></span><br><span class="line">bus.emit(<span class="string">&quot;login&quot;</span>,userInfo);</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<p>3）AnimationController</p>
+<p>AnimationController用于控制动画，它包含动画的启动forward（）、停止stop（）、反向播放reverse（）等方法<br>AnimationController会在动画的每一帧生成一个新的值</p>
+<p>默认情况下<br>AnimationController在给定的时间段内线性的生成从0.0到1.0的数字<br>例如下面代码创建一个Animation对象，但不会启动动画<br>{duration 表示动画执行的时长，通过它们我们可以控制动画的速度}</p>
+<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> AnimationController controller =  AnimationController(</span><br><span class="line"> duration: <span class="keyword">const</span> <span class="built_in">Duration</span>(milliseconds:<span class="number">2000</span>),</span><br><span class="line"> vsunc:<span class="keyword">this</span>,</span><br><span class="line">);</span><br></pre></td></tr></table></figure></div>
+<p>AnimationController 生成数字的区间可以通过lowerBound 和 upperBound 来指定，如：</p>
+<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> AnimationController controller = AnimationController(</span><br><span class="line"> duration: <span class="keyword">const</span> <span class="built_in">Duration</span>(milliseconds:<span class="number">2000</span>),</span><br><span class="line"> lowerBound: <span class="number">10.0</span>,</span><br><span class="line"> upperBound: <span class="number">20.0</span>,</span><br><span class="line"> vsync: <span class="keyword">this</span>,</span><br><span class="line">);</span><br></pre></td></tr></table></figure></div>
+<p>原理：在动画开始执行后 开始生成 动画帧，屏幕每刷新一次就是一个动画帧，在动画帧的每一帧，<br>会随着根据动画的曲线来生成当前的动画值（Animation.value），然后根据当前的动画值去构建UI，<br>当所有动画帧依次触发时，动画值会依次改变，所以构建的UI也会依次变化，所有最终我们可以看到<br>一个完成的动画。</p>
+<p>另外在动画的每一帧，Animation对象会调用其帧监听器，等动画状态发生改变时会调用状态改变监听器</p>
+<p>注意： 在某些情况下，动画值可能会超出AnimationController的[0.0，1.0]的范围，这取决于具体的曲线。例如，fling()函数可以根据我们手指滑动（甩出）的速度(velocity)、力量(force)等来模拟一个手指甩出动画，因此它的动画值可以在[0.0，1.0]范围之外 。也就是说，根据选择的曲线，CurvedAnimation的输出可以具有比输入更大的范围。例如，Curves.elasticIn等弹性曲线会生成大于或小于默认范围的值。</p>
+<ol start="4">
+<li>Ticker</li>
+</ol>
+<p>当创建一个AnimationController时，需要传递一个vsync参数，它接收一个TickerProvider类型的对象，它的主要职责是创建Ticker，定义如下:</p>
+<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">TickerProvider</span> </span>&#123;</span><br><span class="line">  <span class="comment">//通过一个回调创建一个Ticker</span></span><br><span class="line">  Ticker createTicker(TickerCallback onTick);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>通常我们会将SingleTickerProviderStateMixin添加到State的定义中，然后将State对象作为vsync的值</p>
+<ol start="5">
+<li>Tween</li>
+</ol>
+<p>默认情况下，AnimationController对象值的范围是[0.0，1.0]。如果我们需要构建UI的动画值在不同的范围或不同的数据类型，则可以使用Tween来添加映射以生成不同的范围或数据类型的值。例如，像下面示例，Tween生成[-200.0，0.0]的值：</p>
+<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> Tween doubleTween = Tween&lt;<span class="built_in">double</span>&gt; (begin: <span class="number">-200.0</span>, end: <span class="number">0.0</span>)</span><br></pre></td></tr></table></figure></div>
+<p>Tween构造函数需要begin和end两个参数。Tween的唯一职责就是定义从输入范围到输出范围的映射。输入范围通常为[0.0，1.0]，但这不是必须的，我们可以自定义需要的范围。</p>
+<p>Tween继承自Animatable<T>，而不是继承自Animation<T>，Animatable中主要定义动画值的映射规则。</p>
+<p>下面我们看一个ColorTween将动画输入范围映射为两种颜色值之间过渡输出的例子：</p>
+<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> Tween colorTween = ColorTween(begin: Colors.trabsparent, end: Colors.black54);</span><br></pre></td></tr></table></figure></div>
 
-<p>说明：事件总线通常用于组件之间的状态共享，但关于组件之间的状态共享也有一些专门的包如：redux、mobx、Provider。<br>对于一些简单的应用，事件总线足以满足业务需求的，如果你决定使用状态管理包的话，一定要想清楚您的App是否真的需要使用它<br>防止“化简为繁”、过度设计。</p>
+<p>Tween对象不存储任何状态，相反，它提供了evaluate(Animation<double> animation)方法，它可以获取动画当前映射值。 Animation对象的当前值可以通过value()方法取到。evaluate函数还执行一些其他处理，例如分别确保在动画值为0.0和1.0时返回开始和结束状态。</p>
+<ol start="6">
+<li>Tween.animate<br>要使用 Tween 对象，需要调用其animate()方法，然后传入一个控制器对象。例如，以下代码在 500 毫秒内生成从 0 到 255 的整数值。</li>
+</ol>
+<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> AnimationController controller = AnimationController(</span><br><span class="line">  duration: <span class="keyword">const</span> <span class="built_in">Duration</span>(milliseconds: <span class="number">500</span>), </span><br><span class="line">  vsync: <span class="keyword">this</span>,</span><br><span class="line">);</span><br><span class="line">Animation&lt;<span class="built_in">int</span>&gt; alpha = IntTween(begin: <span class="number">0</span>, end: <span class="number">255</span>).animate(controller);</span><br></pre></td></tr></table></figure></div>
+
+<p>注意animate()返回的是一个Animation，而不是一个Animatable。</p>
+<p>以下示例构建了一个控制器、一条曲线和一个 Tween：</p>
+<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> AnimationController controller = AnimationController(</span><br><span class="line">  duration: <span class="keyword">const</span> <span class="built_in">Duration</span>(milliseconds: <span class="number">500</span>), </span><br><span class="line">  vsync: <span class="keyword">this</span>,</span><br><span class="line">);</span><br><span class="line"><span class="keyword">final</span> Animation curve = CurvedAnimation(parent: controller, curve: Curves.easeOut);</span><br><span class="line">Animation&lt;<span class="built_in">int</span>&gt; alpha = IntTween(begin: <span class="number">0</span>, end: <span class="number">255</span>).animate(curve);</span><br></pre></td></tr></table></figure></div>
+
+<ol start="7">
+<li>线性插值lerp函数<br>动画的原理其实就是每一帧绘制不同的内容，一般都是指定起始和结束状态，然后在一段时间内从起始状态逐渐变为结束状态，而具体某一帧的状态值会根据动画的进度来算出，因此，Flutter 中给有可能会做动画的一些状态属性都定义了静态的 lerp 方法（线性插值），比如：<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//a 为起始颜色，b为终止颜色，t为当前动画的进度[0,1]</span></span><br><span class="line">Color.lerp(a, b, t);</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<p>lerp 的计算一般遵循： 返回值 &#x3D; a + (b - a) * t，其他拥有 lerp 方法的类：</p>
+<div class="highlight-container" data-rel="Dart"><figure class="iseeu highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Size.lerp(a, b, t)</span></span><br><span class="line"><span class="comment">// Rect.lerp(a, b, t)</span></span><br><span class="line"><span class="comment">// Offset.lerp(a, b, t)</span></span><br><span class="line"><span class="comment">// Decoration.lerp(a, b, t)</span></span><br><span class="line"><span class="comment">// Tween.lerp(t) //起始状态和终止状态在构建 Tween 的时候已经指定了</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<p>需要注意，lerp 是线性插值，意思是返回值和动画进度t是成一次函数（y &#x3D; kx + b）关系，因为一次函数的图像是一条直线，所以叫线性插值。如果我们想让动画按照一个曲线来执行，我们可以对 t 进行映射，比如要实现匀加速效果，则 t’ &#x3D; at²+bt+c，然后指定加速度 a 和 b 即可（大多数情况下需保证 t’ 的取值范围在[0,1]，当然也有一些情况可能会超出该取值范围，比如弹簧（bounce）效果），而不同 Curve 可以按照不同曲线执行动画的原理本质上就是对 t 按照不同映射公式进行映射实现的。</p>
 
             </div>
 
@@ -402,16 +450,16 @@
                 <div class="post-copyright-info">
                     <div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> 事件总线</li>
+        <li><strong>Title:</strong> Flutter 的动画</li>
         <li><strong>Author:</strong> 人间烟火/张佳伟版</li>
-        <li><strong>Created at:</strong> 2024-05-22 23:12:45</li>
+        <li><strong>Created at:</strong> 2024-06-05 22:36:33</li>
         
             <li>
-                <strong>Updated at:</strong> 2024-05-22 22:44:12
+                <strong>Updated at:</strong> 2024-06-05 21:13:33
             </li>
         
         <li>
-            <strong>Link:</strong> https://945912035.github.io/2024/05/22/2024-05-22/
+            <strong>Link:</strong> https://945912035.github.io/2024/06/05/2024-06-05/
         </li>
         <li>
             <strong>License:</strong> This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>.
@@ -441,29 +489,14 @@
             
                 <div class="article-nav">
                     
-                        <div class="article-prev">
-                            <a class="prev"
-                            rel="prev"
-                            href="/2024/06/05/2024-06-05/"
-                            >
-                                <span class="left arrow-icon flex-center">
-                                    <i class="fa-solid fa-chevron-left"></i>
-                                </span>
-                                <span class="title flex-center">
-                                    <span class="post-nav-title-item">Flutter 的动画</span>
-                                    <span class="post-nav-item">Prev posts</span>
-                                </span>
-                            </a>
-                        </div>
-                    
                     
                         <div class="article-next">
                             <a class="next"
                             rel="next"
-                            href="/2024/05/15/2024-05-15.1/"
+                            href="/2024/05/22/2024-05-22/"
                             >
                                 <span class="title flex-center">
-                                    <span class="post-nav-title-item">手势识别</span>
+                                    <span class="post-nav-title-item">事件总线</span>
                                     <span class="post-nav-item">Next posts</span>
                                 </span>
                                 <span class="right arrow-icon flex-center">
@@ -528,7 +561,7 @@
                 <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">On this page</div>
-        <div class="page-title">事件总线</div>
+        <div class="page-title">Flutter 的动画</div>
         
 
     </div>
